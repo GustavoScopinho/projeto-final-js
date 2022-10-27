@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+
+:root {
+  --texto-padrao :#6F6C90;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  background-color: #ccc;
+  
+}
+
+a, li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.button-maior {
+  background-color: #4A3AFF;
+  border-radius: 86px;
+  color: #fff;
+  width: 350px;
+  height: 67px;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.button-maior:hover {
+
+ opacity: 1;
+ transform: scale(1.01);
+
+}
