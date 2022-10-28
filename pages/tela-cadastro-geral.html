@@ -9,39 +9,69 @@
   </head>
   <body class="body-cadastro">
     <section class="container-cadastro">
-        <h3>Cadastre-se agora</h3>
-        <span>Tenha acesso a milhares de vagas em um só lugar</span>
-        <form class="container-dados">
-            <label for="">Tipo de usuário*</label>
-            <div class="div-input-cad">
-                <select type="text" id="tipo-usuario">
-                    <option value="Candidato" selected>Candidato</option>
-                    <option value="Recrutador">Recrutador</option>
-                </select>
-            </div>
-            <label for="">Nome completo*</label>
-            <div class="div-input-cad">                
-                <input type="text" placeholder="Exemplo: João da Silva"  pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required id="nome-usuario">
-            </div>
-            <label for="">Data de nascimento*</label>
-            <div class="div-input-cad">
-                <input type="date" placeholder="Digite sua data de nascimento" pattern="" required id="nascimento">
-            </div>
-            <label for="">Email*</label>
-            <div class="div-input-cad">
-                <input type="email" placeholder="Digite seu email" pattern="[A-Za-z0-9@.]+$" required id="email">
-            </div>
-            <label for="">Senha*</label>
-            <div class="div-input-cad">
-                <input type="password" placeholder="Digite sua senha" pattern="[A-Za-z0-9@.]+$" required id="senha">
-            </div>
-            <input type="submit" class="button-maior-cad" value="Criar conta" onclick="enviar(event)">
-        </form>
-        <div class="container-cadast-cad" >
-            <span>Já possui uma conta?</span>
-            <a href="./tela-inicial-geral.html" class="bold">Acesse agora</a>
+      <h3>Cadastre-se agora</h3>
+      <span>Tenha acesso a milhares de vagas em um só lugar</span>
+      <form class="container-dados">
+        <label for="">Tipo de usuário*</label>
+        <div class="div-input-cad">
+          <select type="text" id="categoria-usuario">
+            <option value="Candidato" selected>Candidato</option>
+            <option value="Recrutador">Recrutador</option>
+          </select>
         </div>
+        <label for="">Nome completo*</label>
+        <div class="div-input-cad">
+          <input
+            type="text"
+            placeholder="Exemplo: João da Silva"
+            pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+            required
+            id="nome-usuario"
+          />
+        </div>
+        <label for="">Data de nascimento*</label>
+        <div class="div-input-cad">
+          <input
+            type="date"
+            placeholder="Digite sua data de nascimento"
+            pattern=""
+            required
+            id="nascimento"
+          />
+        </div>
+        <label for="">Email*</label>
+        <div class="div-input-cad">
+          <input
+            type="email"
+            placeholder="Digite seu email"
+            pattern="[A-Za-z0-9@.]+$"
+            required
+            id="email"
+          />
+        </div>
+        <label for="">Senha*</label>
+        <div class="div-input-cad">
+          <input
+            type="password"
+            placeholder="Digite sua senha"
+            pattern="[A-Za-z0-9@.]+$"
+            required
+            id="senha"
+          />
+        </div>
+        <input
+          type="submit"
+          class="button-maior-cad"
+          value="Criar conta"
+          onclick="enviar(event)"
+        />
+      </form>
+      <div class="container-cadast-cad">
+        <span>Já possui uma conta?</span>
+        <a href="./tela-inicial-geral.html" class="bold">Acesse agora</a>
+      </div>
     </section>
-    <script src="../js/main.js"></script>
-</body>
+    <script src="../js/cadastro.js"></script>
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+  </body>
 </html>
