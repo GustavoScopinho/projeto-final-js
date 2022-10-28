@@ -16,19 +16,20 @@
         <form class="container-loguin">
             <h3>Entre na sua conta</h3>
             <div class="div-input">
-                <input type="text" placeholder="Email" >
+                <input type="email" placeholder="Email" required>
                 <img src="../img/user.png" alt="">
             </div>
             <div class="div-input">
-                <input type="text" placeholder="Senha">
+                <input type="password" placeholder="Senha" required>
                 <img src="../img/password.png" alt="">
             </div>
-            <input type="submit" class="button-maior" value="Log in">
+            <input type="submit" class="button-maior" value="Log in" onclick="logar(event)">
             <div class="container-cadast" >
                 <span>Novo por aqui ?</span>
-                <a href="#" class="bold">Cadastre-se agora</a>
+                <a href="./tela-cadastro-geral.html" class="bold">Cadastre-se agora</a>
             </div>
         </form>
     </section>  
+    <script src="../js/main.js"></script>
 </body>
 </html>
