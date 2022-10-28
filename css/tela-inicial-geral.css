@@ -15,22 +15,22 @@
   font-family: 'DM Sans', sans-serif;
 }
 
-a, li {
-  text-decoration: none;
-  list-style-type: none;
+a {
+    text-decoration: none;
+    color: var(--texto-padrao);
 }
 
-body {
+
+.body-login {
     display: flex;
     width: 100vw;
     height: 100vh;
 }
 
-h3 {
+.body-login h3 {
     color: var(--texto-h3);
     margin-bottom: 2rem;
     font-size: 2rem;
-
 }
 .button-maior {
   background-color: #4A3AFF;
@@ -84,10 +84,10 @@ h3 {
     justify-content: space-between;
     height: 4.125rem;
     width: 100%;
-    border: solid 1px black;
     border-radius: 46px;
-    padding: 10px 20px; 
-    margin: 7px;
+    padding: 5px 20px; 
+    margin: 7px 0;
+    border: 2px solid #6f6c9025;
 }
 
 .div-input img {
