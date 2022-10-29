@@ -75,6 +75,10 @@ a {
     align-items: center;
 }
 
+.container-cadast-cad a {
+    text-decoration: underline;
+}
+
 label {
     color: var(--texto-h3);
     font-weight: 500;
