@@ -1,0 +1,14 @@
+{
+  "usuarios": [
+    {
+      "tipo": "Candidato",
+      "nome": "Claudao",
+      "dataNascimento": "1980-11-10T03:00:00.000Z",
+      "email": "dads@hotmail.com",
+      "senha": "dsad",
+      "candidaturas": [],
+      "id": 1
+    }
+  ],
+  "vagas": []
+}
