@@ -69,72 +69,27 @@ window.addEventListener('load', ()=>{
   //   mostrarCandidato();
   // } else {
   //   mostrarRecrutador();
-  // }
+  // } 
+
+  getVagas();
 });
 
 
 //------------------------------------------------
 
-let vagas = [
-  {  
-    id: 1,
-    titulo:"Desenvolvedor Javascript Jr",
-    descricao:"Dev Javascript Jr",
-    remuneracao: 3000,
-    candidatos : []
-  },
-  {  
-    id: 2,
-    titulo:"Desenvolvedor Java Pleno",
-    descricao:"Dev Java Pleno",
-    remuneracao: 6000,
-    candidatos : []
-  },
-  {  
-    id: 2,
-    titulo:"Desenvolvedor Backend Serio",
-    descricao:"Dev Backend Serio",
-    remuneracao: 16000,
-    candidatos : []
-  },
-  {  
-    id: 2,
-    titulo:"Desenvolvedor Java Pleno",
-    descricao:"Dev Java Pleno",
-    remuneracao: 5500,
-    candidatos : []
-  },
-  {  
-    id: 1,
-    titulo:"Desenvolvedor Javascript Jr",
-    descricao:"Dev Javascript Jr",
-    remuneracao: 3000,
-    candidatos : []
-  },
-  {  
-    id: 2,
-    titulo:"Desenvolvedor Java Pleno",
-    descricao:"Dev Java Pleno",
-    remuneracao: 6000,
-    candidatos : []
-  },
-  {  
-    id: 2,
-    titulo:"Desenvolvedor Backend Serio",
-    descricao:"Dev Backend Serio",
-    remuneracao: 16000,
-    candidatos : []
-  },
-  {  
-    id: 2,
-    titulo:"Desenvolvedor Java Pleno",
-    descricao:"Dev Java Pleno",
-    remuneracao: 5500,
-    candidatos : []
-  },
-];
 
-let mostrarRecrutador = ()=>{
+let getVagas = async ()=> {   
+  axios.get('http://localhost:3000/vagas')
+      .then(response => {
+          let vagas = response.data;
+          console.log(vagas)
+          mostrarRecrutador(vagas)
+      })
+      .catch(erro => console.log(erro));
+}
+
+
+let mostrarRecrutador = async (vagas)=>{
   let mostrar = document.getElementById('container-vagas-geral');  
 
   if(vagas.length > 0){
@@ -146,7 +101,7 @@ let mostrarRecrutador = ()=>{
       descricaoVagas.className = "descricao-vaga";
       remuneracaoVagas.className = "remuneracao";
       containerVagas.className = "container-vaga";
-      descricaoVagas.innerText = vagas[i].descricao;
+      descricaoVagas.innerText = vagas[i].tituloVaga;
       remuneracaoVagas.innerText = `R$ ${vagas[i].remuneracao}`;
   
       containerVagas.appendChild(descricaoVagas);
@@ -159,8 +114,6 @@ let mostrarRecrutador = ()=>{
   </div>`
   }
 }
-
-mostrarRecrutador();
 
 let mostrarCandidato = ()=>{
   let btn = document.getElementById("btn-cadastro");
