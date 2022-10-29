@@ -57,6 +57,7 @@ const cadastrarUsuario = async () => {
 
 let limparInput = ()=> {
   document.getElementById('nome-usuario').value = '';
+  document.getElementById('nascimento').value = '';
   document.getElementById('email').value = '';
   document.getElementById('senha').value = '';
 }
