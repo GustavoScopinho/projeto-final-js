@@ -1,13 +1,22 @@
 {
   "usuarios": [
     {
-      "tipo": "Candidato",
+      "tipo": "Recrutador",
       "nome": "Claudao",
       "dataNascimento": "1980-11-10T03:00:00.000Z",
       "email": "dads@hotmail.com",
-      "senha": "dsad",
+      "senha": "456",
       "candidaturas": [],
       "id": 1
+    },
+    {
+      "tipo": "Candidato",
+      "nome": "bruna feia",
+      "dataNascimento": "2022-11-04T03:00:00.000Z",
+      "email": "gicelly.oliveira@dbccompany.com.br",
+      "senha": "123",
+      "candidaturas": [],
+      "id": 2
     }
   ],
   "vagas": []
