@@ -1,6 +1,7 @@
 body {
  background-color:  #ccc;
 
+
 }
 
 section {
@@ -82,4 +83,29 @@ article {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.modal {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+}
+
+.esconder-modal {
+  display: none;
+}
+
+.container-x a img {
+  width: 25px;
+}
+
+
+.container-x {
+  width: 115%;
+  display: flex;
+  justify-content: end;
+  margin-top: -20px;
 }
