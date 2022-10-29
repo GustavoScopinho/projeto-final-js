@@ -22,9 +22,9 @@
           <div class="container-exemplo">
             <input
               type="text"
-              name=""
+              name="titulo"
               value=""
-              id=""
+              id="titulo-vaga"
               placeholder="Título da vaga:"
             />
             <!-- <p>Exemplo: QA Jr</p> -->
@@ -35,9 +35,9 @@
           <div class="container-exemplo">
             <input
               type="text"
-              name=""
+              name="descricaovaga"
               value=""
-              id=""
+              id="descricao-vaga"
               placeholder="Exemplo: Automatizar testes..."
             />
           </div>
@@ -47,17 +47,24 @@
           <div class="container-exemplo">
             <input
               type="text"
-              name=""
+              name="remuneracao"
               value=""
-              id=""
+              id="remuneracao"
               placeholder="Exemplo: R$ 5000"
             />
           </div>
           <div class="container-botao">
-            <button class="button-maior" type="submit">Cadastrar vaga</button>
+            <input
+              class="button-maior"
+              type="submit"
+              value="Cadastrar Vaga"
+              onclick="enviarVaga(event)"
+            />
           </div>
         </form>
       </div>
     </section>
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <script src="/js/cadastro-vagas-recrutador.js"></script>
   </body>
 </html>
