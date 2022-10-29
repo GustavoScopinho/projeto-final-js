@@ -31,4 +31,13 @@ const cadastrarVaga = async () => {
     alert('Erro ao cadastrar sua vaga')
     alert(error)
   }
+  limparInputVagas()
+}
+
+
+let limparInputVagas = ()=> {
+  document.getElementById('titulo-vaga').value = '';
+  document.getElementById('descricao-vaga').value = '';
+  document.getElementById('remuneracao').value = '';
+
 }
