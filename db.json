@@ -34,6 +34,12 @@
       "descricaoVagas": "asdfsd",
       "remuneracao": "324234",
       "id": 4
+    },
+    {
+      "tituloVaga": "Vaga Pedreiro",
+      "descricaoVagas": "Pedra",
+      "remuneracao": "5000",
+      "id": 5
     }
   ]
 }

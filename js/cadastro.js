@@ -43,15 +43,15 @@ const cadastrarUsuario = async () => {
     alert('Algo deu errado')
   }
 
-//------------------------------------------------------------
-  limparInput();
+  //------------------------------------------------------------
+  limparInput()
 }
 
-let limparInput = ()=> {
-  document.getElementById('nome-usuario').value = '';
-  document.getElementById('nascimento').value = '';
-  document.getElementById('email').value = '';
-  document.getElementById('senha').value = '';
+let limparInput = () => {
+  document.getElementById('nome-usuario').value = ''
+  document.getElementById('nascimento').value = ''
+  document.getElementById('email').value = ''
+  document.getElementById('senha').value = ''
 }
 
 //----------------------------------------------------------------
@@ -64,59 +64,60 @@ let logar = event => {
 //------------------------------------------------
 //Mostrar vagas ao fazer o Loading da Página
 
-window.addEventListener('load', ()=>{
+window.addEventListener('load', () => {
   // if(){
   //   mostrarCandidato();
   // } else {
   //   mostrarRecrutador();
-  // } 
+  // }
 
-  getVagas();
-});
-
+  getVagas()
+})
 
 //------------------------------------------------
 
-
-let getVagas = async ()=> {   
-  axios.get('http://localhost:3000/vagas')
-      .then(response => {
-          let vagas = response.data;
-          console.log(vagas)
-          mostrarRecrutador(vagas)
-      })
-      .catch(erro => console.log(erro));
+let getVagas = async () => {
+  axios
+    .get('http://localhost:3000/vagas')
+    .then(response => {
+      let vagas = response.data
+      console.log(vagas)
+      mostrarRecrutador(vagas)
+    })
+    .catch(erro => console.log(erro))
 }
 
+let mostrarRecrutador = async vagas => {
+  let mostrar = document.getElementById('container-vagas-geral')
 
-let mostrarRecrutador = async (vagas)=>{
-  let mostrar = document.getElementById('container-vagas-geral');  
-
-  if(vagas.length > 0){
+  if (vagas.length > 0) {
     vagas.map((vaga, i) => {
-      let containerVagas = document.createElement('div');
-      let descricaoVagas = document.createElement('div');
-      let remuneracaoVagas = document.createElement('div');
-  
-      descricaoVagas.className = "descricao-vaga";
-      remuneracaoVagas.className = "remuneracao";
-      containerVagas.className = "container-vaga";
-      descricaoVagas.innerText = vagas[i].tituloVaga;
-      remuneracaoVagas.innerText = `R$ ${vagas[i].remuneracao}`;
-  
-      containerVagas.appendChild(descricaoVagas);
-      containerVagas.appendChild(remuneracaoVagas);
-      mostrar.appendChild(containerVagas);
+      let containerVagas = document.createElement('div')
+      let descricaoVagas = document.createElement('p')
+      let remuneracaoVagas = document.createElement('p')
+      let link = document.createElement('a')
+
+      descricaoVagas.className = 'descricao-vaga'
+      remuneracaoVagas.className = 'remuneracao'
+      link.className = 'container-vaga'
+
+      descricaoVagas.innerText = vagas[i].tituloVaga
+      remuneracaoVagas.innerText = `R$ ${vagas[i].remuneracao}`
+
+      containerVagas.appendChild(descricaoVagas)
+      containerVagas.appendChild(remuneracaoVagas)
+      link.appendChild(containerVagas)
+      mostrar.appendChild(link)
     })
   } else {
-    mostrar.innerHTML= `<div style="margin-top: 37px; justify-content: center;" class="container-vaga" id="container-vagas">
+    mostrar.innerHTML = `<div style="margin-top: 37px; justify-content: center;" class="container-vaga" id="container-vagas">
     <div class="sem-vaga">Nenhuma vaga cadastrada</div>
   </div>`
   }
 }
 
-let mostrarCandidato = ()=>{
-  let btn = document.getElementById("btn-cadastro");
+let mostrarCandidato = () => {
+  let btn = document.getElementById('btn-cadastro')
   btn.className = 'esconder'
 }
 
