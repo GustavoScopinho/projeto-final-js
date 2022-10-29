@@ -107,7 +107,6 @@ let limparInput = ()=> {
 
 let logar = event => {
   event.preventDefault();
-
   verificarCategoriaUsuario();
 }
 
