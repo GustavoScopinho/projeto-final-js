@@ -97,9 +97,12 @@ let mostrarRecrutador = async vagas => {
       let remuneracaoVagas = document.createElement('p')
       let link = document.createElement('a')
 
+      let vagaAtual = [vagas[i].tituloVaga, vagas[i].remuneracao]
+
       descricaoVagas.className = 'descricao-vaga'
       remuneracaoVagas.className = 'remuneracao'
       link.className = 'container-vaga'
+      link.addEventListener('click', () => esconder(vagaAtual))
 
       descricaoVagas.innerText = vagas[i].tituloVaga
       remuneracaoVagas.innerText = `R$ ${vagas[i].remuneracao}`
@@ -114,6 +117,14 @@ let mostrarRecrutador = async vagas => {
     <div class="sem-vaga">Nenhuma vaga cadastrada</div>
   </div>`
   }
+}
+
+function esconder(vagaAtual) {
+  console.log(vagaAtual)
+  let modal = document.getElementById('modal')
+  modal.classList.toggle('esconder-modal')
+  let sectionVaga = document.getElementById('section-vagas')
+  sectionVaga.classList.toggle('esconder-modal')
 }
 
 let mostrarCandidato = () => {

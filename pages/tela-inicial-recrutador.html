@@ -7,9 +7,65 @@
     <title>Tela inicial - Recrutador</title>
     <link rel="stylesheet" href="../globalstyle.css" />
     <link rel="stylesheet" href="../css/tela-inicial-recrutador.css" />
+    <link rel="stylesheet" href="../css/tela-vagas-recrutado.css" />
   </head>
   <body>
-    <section>
+    <div class="container-modal-maior">
+      <div id="modal" class="modal esconder-modal">
+        <section class="container-geral">
+          <div class="container-x">
+            <a href="./tela-inicial-recrutador.html">
+              <img src="../img/x-vermelho.png" alt=""
+            /></a>
+          </div>
+          <div class="header-container">
+            <p class="id-vaga">ID da vaga: ###</p>
+            <p class="remuneracao"><span>Remuneração:</span> R$ 5000</p>
+          </div>
+          <div class="titulo-container">
+            <p><span>Título:</span> Dev React Jr</p>
+          </div>
+          <div class="texto-container">
+            <p>
+              <span>Descrição da vaga:</span> Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Sed sollicitudin sit amet ante in
+              euismod. Aenean nec maximus risus. Mauris fringilla tincidunt
+              lacus, vel consectetur orci finibus quis.
+            </p>
+          </div>
+          <div class="titulo-vaga">
+            <h3>Candidatos inscritos na vaga</h3>
+          </div>
+          <div class="vagas-container">
+            <div class="header-vagas">
+              <p>Nome</p>
+              <p>Data de Nascimento</p>
+            </div>
+            <div class="vagas-geral">
+              <div class="vaga">
+                <p>João da Silva</p>
+                <p>10/12/1999</p>
+                <button class="btn-normal">Reprovar</button>
+              </div>
+              <div class="vaga">
+                <p>João da Silva</p>
+                <p>10/12/1999</p>
+                <button class="btn-normal desabilitado">Reprovar</button>
+              </div>
+              <div class="vaga">
+                <p>João da Silva</p>
+                <p>10/12/1999</p>
+                <button class="btn-normal">Reprovar</button>
+              </div>
+            </div>
+          </div>
+          <div class="excluir-container">
+            <button class="btn-excluir-vaga">Excluir Vaga</button>
+          </div>
+        </section>
+      </div>
+    </div>
+    <section id="section-vagas">
       <article>
         <div class="container-article">
           <a href="">Sair </a>
@@ -17,10 +73,13 @@
         </div>
       </article>
       <div class="container-maior" id="container-maior">
-        <div class="container-vagas-geral" id="container-vagas-geral">
-        </div>        
+        <div class="container-vagas-geral" id="container-vagas-geral"></div>
         <div class="container-button">
-          <a href="./tela-cadastrar-vaga.html"><button class="button-maior" id="btn-cadastro">Cadastrar vaga</button></a>
+          <a href="./tela-cadastrar-vaga.html"
+            ><button class="button-maior" id="btn-cadastro">
+              Cadastrar vaga
+            </button></a
+          >
         </div>
       </div>
     </section>
