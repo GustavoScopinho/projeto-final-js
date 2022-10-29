@@ -40,6 +40,42 @@
       "descricaoVagas": "Pedra",
       "remuneracao": "5000",
       "id": 5
+    },
+    {
+      "tituloVaga": "",
+      "descricaoVagas": "",
+      "remuneracao": "",
+      "id": 6
+    },
+    {
+      "tituloVaga": "",
+      "descricaoVagas": "",
+      "remuneracao": "",
+      "id": 7
+    },
+    {
+      "tituloVaga": "",
+      "descricaoVagas": "",
+      "remuneracao": "",
+      "id": 8
+    },
+    {
+      "tituloVaga": "",
+      "descricaoVagas": "",
+      "remuneracao": "",
+      "id": 9
+    },
+    {
+      "tituloVaga": "",
+      "descricaoVagas": "",
+      "remuneracao": "",
+      "id": 10
+    },
+    {
+      "tituloVaga": "",
+      "descricaoVagas": "",
+      "remuneracao": "",
+      "id": 11
     }
   ]
 }
