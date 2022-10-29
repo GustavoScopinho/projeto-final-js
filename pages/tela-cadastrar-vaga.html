@@ -54,11 +54,17 @@
             />
           </div>
           <div class="container-botao">
-            <input class="button-maior" type="submit" value="Cadastrar Vaga" onclick="cadastrarVaga(event)">
+            <input
+              class="button-maior"
+              type="submit"
+              value="Cadastrar Vaga"
+              onclick="enviarVaga(event)"
+            />
           </div>
         </form>
       </div>
     </section>
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
     <script src="/js/cadastro-vagas-recrutador.js"></script>
   </body>
 </html>

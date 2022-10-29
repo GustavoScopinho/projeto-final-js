@@ -1,30 +1,34 @@
-const URL_VAGAS = 'http://localhost:3000/vagas';
+const URL_VAGAS = 'http://localhost:3000/vagas'
 
-
-let vagasCadastradas = [];
-
-const cadastrarVaga = async (event) =>{
-    event.preventDefault();
-    
-    let tituloVaga = document.getElementById("titulo-vaga").value;
-    let descricaoVagas = document.getElementById("descricao-vaga").value;
-    let remuneracao = document.getElementById("remuneracao").value;
-
-    let novaVaga = {
-        tituloVaga: tituloVaga,
-        descricaoVagas: descricaoVagas,
-        remuneracao: remuneracao
-    }    
-vagasCadastradas.push(novaVaga);
-console.log(vagasCadastradas);
-
-try {
-    await axios.post(`${URL_VAGAS}, novaVaga`);
-    alert("Vaga cadastrada com sucesso!");
-  } catch (error) {
-    alert("Erro ao cadastrar sua vaga");
-    alert(error);
+class Vaga {
+  constructor(tituloVaga, descricaoVagas, remuneracao) {
+    this.tituloVaga = tituloVaga
+    this.descricaoVagas = descricaoVagas
+    this.remuneracao = remuneracao
   }
 }
 
+const enviarVaga = event => {
+  event.preventDefault()
+  cadastrarVaga()
+}
 
+const cadastrarVaga = async () => {
+  const tituloVaga = document.getElementById('titulo-vaga')
+  const descricaoVagas = document.getElementById('descricao-vaga')
+  const remuneracao = document.getElementById('remuneracao')
+
+  const novaVaga = new Vaga(
+    tituloVaga.value,
+    descricaoVagas.value,
+    remuneracao.value
+  )
+
+  try {
+    await axios.post('http://localhost:3000/vagas', novaVaga)
+    alert('Vaga cadastrada com sucesso!')
+  } catch (error) {
+    alert('Erro ao cadastrar sua vaga')
+    alert(error)
+  }
+}
