@@ -1,24 +1,16 @@
 const url = 'http://localhost:3000'
-
 const urlUsuarios = `${url}/usuarios`
-
 const urlVagas = `${url}/vagas`
 
 class Usuario {
-  id
-  categoria
-  nomeCompleto
-  dataDeNascimento
-  email
-  senha
-  candidaturas = []
-
-  constructor(categoria, nomeCompleto, dataDeNascimento, email, senha) {
-    this.categoria = categoria
-    this.nomeCompleto = nomeCompleto
-    this.dataDeNascimento = dataDeNascimento
+  constructor(tipo, nome, dataNascimento, email, senha) {
+    this.id
+    this.tipo = tipo
+    this.nome = nome
+    this.dataNascimento = dataNascimento
     this.email = email
     this.senha = senha
+    this.candidaturas = []
   }
 }
 
@@ -46,7 +38,7 @@ const cadastrarUsuario = async () => {
   )
 
   try {
-    await axios.post(`http://localhost:3000/usuarios`, novoUsuario)
+    await axios.post(urlUsuarios, novoUsuario)
     alert('Parabéns, você foi cadastrado!')
   } catch (error) {
     alert('Algo deu errado')
