@@ -104,6 +104,34 @@ let vagas = [
     remuneracao: 5500,
     candidatos : []
   },
+  {  
+    id: 1,
+    titulo:"Desenvolvedor Javascript Jr",
+    descricao:"Dev Javascript Jr",
+    remuneracao: 3000,
+    candidatos : []
+  },
+  {  
+    id: 2,
+    titulo:"Desenvolvedor Java Pleno",
+    descricao:"Dev Java Pleno",
+    remuneracao: 6000,
+    candidatos : []
+  },
+  {  
+    id: 2,
+    titulo:"Desenvolvedor Backend Serio",
+    descricao:"Dev Backend Serio",
+    remuneracao: 16000,
+    candidatos : []
+  },
+  {  
+    id: 2,
+    titulo:"Desenvolvedor Java Pleno",
+    descricao:"Dev Java Pleno",
+    remuneracao: 5500,
+    candidatos : []
+  },
 ];
 
 let mostrarRecrutador = ()=>{
