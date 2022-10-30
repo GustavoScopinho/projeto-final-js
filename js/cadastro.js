@@ -173,43 +173,48 @@ let excluirVaga = async vagaAtual => {
 //-------------Login ------------
 
 function getUsuario (event) {
-    event.preventDefault()
-    let email = document.getElementById('email').value
-    let senha = document.getElementById('senha').value
-    axios.get(urlUsuarios)
-    .then(response => {
-        var data = response.data;
-        
-        validarLogin(data, email, senha);
-    })
-    .catch(error => console.log(error))
+  event.preventDefault()
+  let email = document.getElementById('email').value
+  let senha = document.getElementById('senha').value
+  axios.get(urlUsuarios)
+  .then(response => {
+      var data = response.data;
+      
+      validarLogin(data, email, senha);
+  })
+  .catch(error => console.log(error))
 }
 
 async function validarLogin (data, email, senha) {
 
-    var i = 0
-    let aux = true
-    while (aux) {
-        if(data[i].email == email && data[i].senha == senha) {
-            var tipo = data[i].tipo;
+  var i = 0
+  let aux = true
+  while (aux) {
+      if(data[i].email == email && data[i].senha == senha) {
+          var tipo = data[i].tipo;
 
-            if(tipo == 'Candidato'){
-                window.location.href = './tela-inicial-candidato.html';
-            } 
-            if(tipo == 'Recrutador') {
-                window.location.href = './tela-inicial-recrutador.html';
-            }
+          localStorage.setItem('tipoUsuarioLogado', tipo);
+          
 
-            console.log('encotrou')
-            aux = false
+          if(tipo == 'Candidato'){
+              window.location.href = './tela-inicial-candidato.html';
+          } 
+          if(tipo == 'Recrutador') {
+              window.location.href = './tela-inicial-recrutador.html';
+          }
 
-        } else if(i == data.length -1) {
-            aux = false
-        } else {
-            console.log('nao encontrou')
-        }
-        i++
-    }
+          console.log('encotrou')
+          aux = false
+
+      } else if(i == data.length -1) {
+          aux = false
+          alert("Usuário não encontrado. Por favor, verifique os dados informados ou cadastre-se.")
+      } else {
+          console.log('nao encontrou')
+      
+      }
+      i++
+  }
 }
 
 //---------------------------------
