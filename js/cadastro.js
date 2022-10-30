@@ -75,6 +75,16 @@ let logar = event => {
 //   getVagas()
 // })
 
+window.addEventListener('load', () => {
+  // if(){
+    // mostrarCandidato();
+  // } else {
+  //   mostrarRecrutador();
+  // }
+
+  getVagas()
+})
+
 //------------------------------------------------
 
 let getVagas = async () => {
