@@ -1,11 +1,11 @@
 body {
  background-color:  #ccc;
 
-
 }
 
 section {
   width: 100%;
+  height: 100vh;
   background-color: #ccc;
   display: flex;
   align-items: center;
@@ -16,21 +16,12 @@ section {
 .container-maior {
   background-color: #fff;
   width: 60%;
-  min-height: 200px;
+  height: 90%;
   border-radius: 34px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
-  padding: 20px 0px;
-}
-
-.container-vagas-geral {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;  
-  gap: 10px;
+  margin-bottom: 20px;
 }
 
 article {
@@ -39,6 +30,7 @@ article {
   align-items: flex-start;
   display: flex;
   justify-content: end;
+
 }
 
 .container-article {
@@ -59,6 +51,7 @@ article {
   border-radius: 46px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
   align-items: center;
   padding: 0px 15px;
   cursor: pointer;
@@ -73,39 +66,4 @@ article {
 .button-maior {
   width: 603px;
   margin: 20px 0px
-}
-
-.esconder {
-  display: none;
-}
-
-.container-vaga div {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.modal {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-
-}
-
-.esconder-modal {
-  display: none;
-}
-
-.container-x a img {
-  width: 25px;
-}
-
-
-.container-x {
-  width: 115%;
-  display: flex;
-  justify-content: end;
-  margin-top: -20px;
 }
