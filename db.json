@@ -49,6 +49,18 @@
       "descricaoVagas": "Pedra",
       "remuneracao": "5000",
       "id": 5
+    },
+    {
+      "tituloVaga": "",
+      "descricaoVagas": "",
+      "remuneracao": "",
+      "id": 6
+    },
+    {
+      "tituloVaga": "Desenvolvedor",
+      "descricaoVagas": "Desenvolve",
+      "remuneracao": "12",
+      "id": 7
     }
   ]
 }

@@ -81,7 +81,6 @@ let getVagas = async () => {
     .get('http://localhost:3000/vagas')
     .then(response => {
       let vagas = response.data
-      console.log(vagas)
       mostrarRecrutador(vagas)
     })
     .catch(erro => console.log(erro))
@@ -97,7 +96,7 @@ let mostrarRecrutador = async vagas => {
       let remuneracaoVagas = document.createElement('p')
       let link = document.createElement('a')
 
-      let vagaAtual = [vagas[i].tituloVaga, vagas[i].remuneracao]
+      let vagaAtual = [vagas[i].tituloVaga, vagas[i].remuneracao, vagas[i].descricaoVagas, vagas[i].id]
 
       descricaoVagas.className = 'descricao-vaga'
       remuneracaoVagas.className = 'remuneracao'
@@ -120,11 +119,12 @@ let mostrarRecrutador = async vagas => {
 }
 
 function esconder(vagaAtual) {
-  console.log(vagaAtual)
+  // console.log(vagaAtual)
   let modal = document.getElementById('modal')
   modal.classList.toggle('esconder-modal')
   let sectionVaga = document.getElementById('section-vagas')
   sectionVaga.classList.toggle('esconder-modal')
+  mostraInforVagas(vagaAtual);
 }
 
 let mostrarCandidato = () => {
@@ -133,3 +133,18 @@ let mostrarCandidato = () => {
 }
 
 // mostrarCandidato();
+
+let mostraInforVagas = (vagaAtual)=>{
+  console.log(vagaAtual);
+  vagaAtual.map(()=> {
+    let idVaga = document.getElementById('id-vaga');
+    let remuneracao = document.getElementById('remuneracao');
+    let titulo = document.getElementById('titulo');
+    let descricao = document.getElementById('descricao');
+   
+    idVaga.innerText = vagaAtual[3];
+    remuneracao.innerText = vagaAtual[1];
+    titulo.innerText = vagaAtual[0];
+    descricao.innerText = vagaAtual[2];
+  });
+}
