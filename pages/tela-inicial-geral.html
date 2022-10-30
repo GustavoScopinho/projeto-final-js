@@ -13,24 +13,23 @@
         <img src="../img/caderno-e-lapis.png" alt="">
     </section>
     <section class="div-login">
-        <form class="container-loguin">
+        <div class="container-loguin">
             <h3>Entre na sua conta</h3>
             <div class="div-input">
-                <input id="email" type="email" placeholder="Email" required>
+                <input type="text" placeholder="Email" >
                 <img src="../img/user.png" alt="">
             </div>
             <div class="div-input">
-                <input id="senha" type="password" placeholder="Senha" required>
+                <input type="text" placeholder="Senha">
                 <img src="../img/password.png" alt="">
             </div>
-            <input id="btn-logar" type="submit" class="button-maior" value="Log in" onclick="getUsuario(event)">
+            <button class="button-maior">Log in</button>
             <div class="container-cadast" >
                 <span>Novo por aqui ?</span>
-                <a href="./tela-cadastro-geral.html" class="bold">Cadastre-se agora</a>
+                <a href="#" class="bold">Cadastre-se agora</a>
             </div>
-        </form>
+        </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>  
-    <script src="../js/cadastro.js"></script>
+    
 </body>
 </html>

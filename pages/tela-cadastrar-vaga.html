@@ -16,21 +16,16 @@
         </div>
 
         <form class="container-vaga">
-          <div class="container-x">
-            <a href="./tela-inicial-recrutador.html">
-              <img src="../img/x-vermelho.png" alt=""
-            /></a>
-          </div>
           <div class="subtitulo">
             <p>Título da vaga:</p>
           </div>
           <div class="container-exemplo">
             <input
               type="text"
-              name="titulo"
-              id="titulo-vaga"
+              name=""
+              value=""
+              id=""
               placeholder="Título da vaga:"
-              required
             />
             <!-- <p>Exemplo: QA Jr</p> -->
           </div>
@@ -40,10 +35,10 @@
           <div class="container-exemplo">
             <input
               type="text"
-              name="descricaovaga"
-              id="descricao-vaga"
+              name=""
+              value=""
+              id=""
               placeholder="Exemplo: Automatizar testes..."
-              required
             />
           </div>
           <div class="subtitulo">
@@ -52,25 +47,17 @@
           <div class="container-exemplo">
             <input
               type="text"
-              name="remuneracao"
+              name=""
               value=""
-              id="remuneracao"
+              id=""
               placeholder="Exemplo: R$ 5000"
-              required
             />
           </div>
           <div class="container-botao">
-            <input
-              class="button-maior"
-              type="submit"
-              value="Cadastrar Vaga"
-              onclick="enviarVaga(event)"
-            />
+            <button class="button-maior" type="submit">Cadastrar vaga</button>
           </div>
         </form>
       </div>
     </section>
-    <script src="../node_modules/axios/dist/axios.min.js"></script>
-    <script src="/js/cadastro.js"></script>
   </body>
 </html>

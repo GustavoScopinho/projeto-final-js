@@ -87,14 +87,3 @@ input::placeholder {
  padding-left: 10px;
   
 }
-
-form div a img {
-  width: 25px;
-  margin-right: 10px;
-}
-
-.container-x {
-  width: 100%;
-  display: flex;
-  justify-content: end;
-}
