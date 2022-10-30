@@ -6,17 +6,107 @@
       "dataNascimento": "1980-11-10T03:00:00.000Z",
       "email": "dads@hotmail.com",
       "senha": "456",
-      "candidaturas": [],
+      "candidaturas": {
+        "tituloVaga": "Vaga pinto",
+        "descricaoVagas": "Pintar",
+        "remuneracao": "5000",
+        "id": 4
+      },
       "id": 1
     },
     {
+      "0": [
+        {
+          "tituloVaga": "Front end React",
+          "descricaoVagas": "Usar react",
+          "remuneracao": "4000",
+          "id": 3
+        }
+      ],
+      "1": {
+        "candidaturas": {
+          "tituloVaga": "Front end React",
+          "descricaoVagas": "Usar react",
+          "remuneracao": "4000",
+          "id": 3
+        }
+      },
       "tipo": "Candidato",
-      "nome": "bruna feia",
+      "nome": "AAAAAAAAAAAAAAAAAAAA",
       "dataNascimento": "2022-11-04T03:00:00.000Z",
       "email": "gicelly.oliveira@dbccompany.com.br",
       "senha": "123",
-      "candidaturas": [],
+      "candidaturas": [
+        {
+          "candidaturas": {
+            "tituloVaga": "Vaga pinto",
+            "descricaoVagas": "Pintar",
+            "remuneracao": "5000",
+            "id": 4
+          }
+        },
+        {
+          "candidaturas": {
+            "tituloVaga": "Front end React",
+            "descricaoVagas": "Usar react",
+            "remuneracao": "4000",
+            "id": 3
+          }
+        },
+        {
+          "candidaturas": {
+            "tituloVaga": "Vaga pintor",
+            "descricaoVagas": "Pintar",
+            "remuneracao": "5000",
+            "id": 1
+          }
+        }
+      ],
       "id": 2
+    },
+    {
+      "nome": "claudinho",
+      "id": 3
+    },
+    {
+      "nome": "claudinho",
+      "id": 4
+    },
+    {
+      "nome": "claudinho",
+      "id": 5
+    },
+    {
+      "nome": "claudinho",
+      "id": 6
+    },
+    {
+      "nome": "claudinho",
+      "id": 7
+    },
+    {
+      "candidaturasUm": "",
+      "id": 8
+    },
+    {
+      "candidaturasUm": "",
+      "id": 9
+    },
+    {
+      "candidaturasUm": "",
+      "id": 10
+    },
+    {
+      "candidaturasUm": "",
+      "id": 11
+    },
+    {
+      "nome": "bochecha",
+      "id": 12
+    },
+    {
+      "nome": "bochecha",
+      "id": 13
     }
   ],
   "vagas": [

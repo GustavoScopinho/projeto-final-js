@@ -1,6 +1,10 @@
+// const { default: axios } = require('axios')
+
 const url = 'http://localhost:3000'
 const urlUsuarios = `${url}/usuarios`
 const urlVagas = `${url}/vagas`
+
+console.log('dasds')
 
 class Usuario {
   constructor(tipo, nome, dataNascimento, email, senha) {
@@ -13,6 +17,12 @@ class Usuario {
     this.candidaturas = []
   }
 }
+
+//  ------------------------------
+
+// addCandidaturas()
+console.log('aaa')
+//  --------------------------
 
 const enviar = event => {
   event.preventDefault()
@@ -156,9 +166,42 @@ let mostraInforVagas = vagaAtual => {
     titulo.innerText = vagaAtual[0]
     descricao.innerText = vagaAtual[2]
   })
+  console.log(vagaAtual)
 
   let btnExcluir = document.getElementById('excluir-vaga')
-  btnExcluir.addEventListener('click', () => excluirVaga(vagaAtual))
+  btnExcluir.addEventListener('click', () => candidatarVaga(vagaAtual))
+}
+
+async function candidatarVaga(vagaAtual) {
+  let usuarioLogado = localStorage.getItem('idUsuarioLogado')
+
+  const response = await fetch(`${urlUsuarios}`)
+  let vagasResponse = await response.json()
+  console.log(typeof vagasResponse)
+  let percorrerUsuarios = vagasResponse.filter(
+    usuarios => usuarios.id == usuarioLogado
+  )[0].candidaturas
+
+  const candidaturasUm = {
+    candidaturas: {
+      tituloVaga: vagaAtual[0],
+      descricaoVagas: vagaAtual[2],
+      remuneracao: vagaAtual[1],
+      id: vagaAtual[3]
+    }
+  }
+
+  percorrerUsuarios.push(candidaturasUm)
+
+  await fetch(`${urlUsuarios}/${usuarioLogado}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      candidaturas: percorrerUsuarios
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
+    }
+  })
 }
 
 let excluirVaga = async vagaAtual => {
@@ -193,7 +236,9 @@ async function validarLogin(data, email, senha) {
     if (data[i].email == email && data[i].senha == senha) {
       var tipo = data[i].tipo
       var emailUsuario = data[i].email
+      var idUsuario = data[i].id
 
+      localStorage.setItem('idUsuarioLogado', idUsuario)
       localStorage.setItem('tipoUsuarioLogado', tipo)
       localStorage.setItem('emailUsuarioLogado', emailUsuario)
 
