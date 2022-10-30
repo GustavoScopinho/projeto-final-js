@@ -119,6 +119,10 @@ input::placeholder {
     font-size: 1.125rem;
 }
 
+.container-cadast a {
+    text-decoration: underline;
+}
+
 .bold {
     font-weight: 700;
 }
