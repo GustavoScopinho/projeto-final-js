@@ -118,10 +118,22 @@ let mostrarRecrutador = async vagas => {
   }
 }
 
+let mostrarCandidato = () => {
+  let btn = document.getElementById('btn-cadastro')
+  btn.className = 'esconder'
+}
+
+// mostrarCandidato();
+
+
 function esconder(vagaAtual) {
-  let tipoUsuario = localStorage.getItem('tipoUsuarioLogado');
-  console.log(tipoUsuario);
-//---------------------------------------------------------
+
+//------------------------- Mostar tipo de usuário logado --------------------------------------  
+
+  // let tipoUsuario = localStorage.getItem('tipoUsuarioLogado');
+  // console.log(tipoUsuario);
+
+//------------------------------------------------------------------------------
 
   let modal = document.getElementById('modal')
   modal.classList.toggle('esconder-modal')
@@ -130,27 +142,33 @@ function esconder(vagaAtual) {
   mostraInforVagas(vagaAtual);
 }
 
-let mostrarCandidato = () => {
-  let btn = document.getElementById('btn-cadastro')
-  btn.className = 'esconder'
-}
-
-// mostrarCandidato();
-
 let mostraInforVagas = (vagaAtual)=>{
-  console.log(vagaAtual);
   vagaAtual.map(()=> {
     let idVaga = document.getElementById('id-vaga');
     let remuneracao = document.getElementById('remuneracao');
     let titulo = document.getElementById('titulo');
-    let descricao = document.getElementById('descricao');
-   
+    let descricao = document.getElementById('descricao');   
+    
     idVaga.innerText = vagaAtual[3];
     remuneracao.innerText = vagaAtual[1];
     titulo.innerText = vagaAtual[0];
     descricao.innerText = vagaAtual[2];
   });
+  
+  let btnExcluir = document.getElementById('excluir-vaga');
+  btnExcluir.addEventListener('click', () => excluirVaga(vagaAtual));
 }
+
+let excluirVaga = async vagaAtual => {    
+    axios
+    .delete(`${urlVagas}/${vagaAtual[3]}`)
+    .then(response=> {
+      console.log(vagas);
+    })
+    .catch(erro => console.log(erro));
+}
+
+
 
 //-------------Login ------------
 
@@ -232,10 +250,8 @@ const cadastrarVaga = async () => {
   limparInputVagas()
 }
 
-
 let limparInputVagas = ()=> {
   document.getElementById('titulo-vaga').value = '';
   document.getElementById('descricao-vaga').value = '';
   document.getElementById('remuneracao').value = '';
-
 }
