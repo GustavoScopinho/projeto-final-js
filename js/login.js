@@ -22,6 +22,8 @@ async function validarLogin (data, email, senha) {
         if(data[i].email == email && data[i].senha == senha) {
             var tipo = data[i].tipo;
 
+            localStorage.setItem('tipoUsuarioLogado', tipo);
+
             if(tipo == 'Candidato'){
                 window.location.href = './tela-inicial-candidato.html';
             } 
@@ -34,8 +36,10 @@ async function validarLogin (data, email, senha) {
 
         } else if(i == data.length -1) {
             aux = false
+            alert("Usuário não cadastrado. Por favor, cadastre-se")
         } else {
             console.log('nao encontrou')
+        
         }
         i++
     }
