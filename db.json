@@ -31,6 +31,18 @@
       "descricaoVagas": "Usar react",
       "remuneracao": "4000",
       "id": 2
+    },
+    {
+      "tituloVaga": "Front end React",
+      "descricaoVagas": "Usar react",
+      "remuneracao": "4000",
+      "id": 3
+    },
+    {
+      "tituloVaga": "Vaga pinto",
+      "descricaoVagas": "Pintar",
+      "remuneracao": "5000",
+      "id": 4
     }
   ]
 }
