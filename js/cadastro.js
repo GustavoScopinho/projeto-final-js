@@ -185,26 +185,33 @@ let candidaturas = [
 ];
 
 let mostarCandidatosDaVaga = (candidaturas)=> {  
+  let vagasGeral = document.getElementById("vagas-geral");
 
-  candidaturas.map((candidatura)=> {
-    let vagasGeral = document.getElementById("vagas-geral");
-    let candidato = document.createElement('div');
-    let nome = document.createElement('p');
-    let dataNascimento = document.createElement('p');
-    let button = document.createElement('button');    
+  if (candidaturas.length > 0) {
+    candidaturas.map((candidatura)=> {      
+      let candidato = document.createElement('div');
+      let nome = document.createElement('p');
+      let dataNascimento = document.createElement('p');
+      let button = document.createElement('button');    
 
-    vagasGeral.className = 'vagas-geral';
-    nome.innerText = candidatura.nome;
-    dataNascimento.innerHTML = candidatura.dataDeNascimento;
-    candidato.className = "vaga";
-    button.innerText = "Reprovar"
-    button.className = 'btn-normal';
+      vagasGeral.className = 'vagas-geral';
+      nome.innerText = candidatura.nome;
+      dataNascimento.innerHTML = candidatura.dataDeNascimento;
+      candidato.className = "vaga";
+      button.innerText = "Reprovar"
+      button.className = 'btn-normal';
 
-    candidato.appendChild(nome);
-    candidato.appendChild(dataNascimento);
-    candidato.appendChild(button);
-    vagasGeral.appendChild(candidato);
-  });
+      candidato.appendChild(nome);
+      candidato.appendChild(dataNascimento);
+      candidato.appendChild(button);
+      vagasGeral.appendChild(candidato);
+    });
+
+  } else {
+    vagasGeral.innerHTML = `<div style="margin: 30px 0px; justify-content: center;" class="vaga" id="container-vagas">
+    <div class="sem-vaga">Nenhum candidato cadastrado</div>
+  </div>`
+  }
 }
 
 //----------------------------------------------------------------------------------------------
