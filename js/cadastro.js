@@ -245,9 +245,9 @@ const enviarVaga = event => {
 }
 
 const cadastrarVaga = async () => {
-  const tituloVaga = document.getElementById('titulo-vaga')
-  const descricaoVagas = document.getElementById('descricao-vaga')
-  const remuneracao = document.getElementById('remuneracao')
+  const tituloVaga = document.getElementById('titulo-vaga');
+  const descricaoVagas = document.getElementById('descricao-vaga');
+  const remuneracao = document.getElementById('remuneracao');
 
   const novaVaga = new Vaga(
     tituloVaga.value,
@@ -255,14 +255,20 @@ const cadastrarVaga = async () => {
     remuneracao.value
   )
 
-  try {
-    await axios.post('http://localhost:3000/vagas', novaVaga)
-    alert('Vaga cadastrada com sucesso!')
-  } catch (error) {
-    alert('Erro ao cadastrar sua vaga')
-    alert(error)
+
+    try {  
+      if(tituloVaga.value != "" && descricaoVagas.value != "" && remuneracao.value != ""){
+        await axios.post('http://localhost:3000/vagas', novaVaga)
+        alert('Vaga cadastrada com sucesso!');
+    } else{
+        alert("Todos os campos devem ser preenchidos!");
+    }
+  }catch (error) {
+    alert('Erro ao cadastrar sua vaga');
+    alert(error);
   }
-  limparInputVagas()
+
+  limparInputVagas();
 }
 
 let limparInputVagas = () => {
