@@ -119,7 +119,10 @@ let mostrarRecrutador = async vagas => {
 }
 
 function esconder(vagaAtual) {
-  // console.log(vagaAtual)
+  let tipoUsuario = localStorage.getItem('tipoUsuarioLogado');
+  console.log(tipoUsuario);
+//---------------------------------------------------------
+
   let modal = document.getElementById('modal')
   modal.classList.toggle('esconder-modal')
   let sectionVaga = document.getElementById('section-vagas')
