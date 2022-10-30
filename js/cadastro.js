@@ -64,15 +64,16 @@ let logar = event => {
 //------------------------------------------------
 //Mostrar vagas ao fazer o Loading da Página
 
-window.addEventListener('load', () => {
-  // if(){
-  //   mostrarCandidato();
-  // } else {
-  //   mostrarRecrutador();
-  // }
+// window.addEventListener('load', () => {
+//   let tipoUsuarioLogado = localStorage.getItem('tipoUsuarioLogado');
+//   if(tipoUsuarioLogado === "Candidato"){
+//     mostrarCandidato();
+//   } else {
+//     mostrarRecrutador();
+//   }
 
-  getVagas()
-})
+//   getVagas()
+// })
 
 //------------------------------------------------
 
