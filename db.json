@@ -17,6 +17,15 @@
       "senha": "123",
       "candidaturas": [],
       "id": 2
+    },
+    {
+      "tipo": "Candidato",
+      "nome": "eu",
+      "dataNascimento": "2022-11-11T03:00:00.000Z",
+      "email": "a@g.com",
+      "senha": "123",
+      "candidaturas": [],
+      "id": 3
     }
   ],
   "vagas": [
@@ -43,6 +52,12 @@
       "descricaoVagas": "Pintar",
       "remuneracao": "5000",
       "id": 4
+    },
+    {
+      "tituloVaga": "alguma",
+      "descricaoVagas": "coisa",
+      "remuneracao": "15000",
+      "id": 5
     }
   ]
 }

@@ -129,19 +129,27 @@ let mostrarCandidato = () => {
 
 // mostrarCandidato();
 
-function esconder(vagaAtual) {
+async function esconder(vagaAtual) {
   //------------------------- Mostar tipo de usuário logado --------------------------------------
 
-  // let tipoUsuario = localStorage.getItem('tipoUsuarioLogado');
-  // console.log(tipoUsuario);
+  let tipoUsuario = localStorage.getItem('tipoUsuarioLogado');
+  console.log(typeof tipoUsuario);
 
   //------------------------------------------------------------------------------
 
-  let modal = document.getElementById('modal')
-  modal.classList.toggle('esconder-modal')
-  let sectionVaga = document.getElementById('section-vagas')
-  sectionVaga.classList.toggle('esconder-modal')
-  mostraInforVagas(vagaAtual)
+  if(tipoUsuario == "Candidato"){
+    window.location.href = './tela-vaga-usuário.html'
+    mostraInforVagasUsuarios(vagaAtual);
+  }
+  
+  setTimeout(()=>{
+    let modal = document.getElementById('modal')
+    modal.classList.toggle('esconder-modal')
+    let sectionVaga = document.getElementById('section-vagas')
+    sectionVaga.classList.toggle('esconder-modal')
+  }, 100);
+
+  mostraInforVagas(vagaAtual);
 }
 
 let mostraInforVagas = vagaAtual => {
@@ -162,6 +170,30 @@ let mostraInforVagas = vagaAtual => {
 
   mostarCandidatosDaVaga(candidaturas);
 }
+
+let mostraInforVagasUsuarios = vagaAtual =>{
+  let idVaga2 = document.getElementById('id-vaga-usuario')
+  console.log(idVaga2)
+
+
+  vagaAtual.map(() => {
+    let idVaga2 = document.getElementById('id-vaga-usuario')
+    let remuneracao2 = document.getElementById('remuneracao2')
+    let titulo2 = document.getElementById('titulo2')
+    let descricao2 = document.getElementById('descricao2')
+
+    
+
+    idVaga2.innerText = vagaAtual[3]
+    remuneracao2.innerText = vagaAtual[1]
+    titulo2.innerText = vagaAtual[0]
+    descricao2.innerText = vagaAtual[2]
+  })
+
+  mostarCandidatosDaVaga(candidaturas);
+}
+
+
 
 
 //----------------------------------Mostrar candidaturas----------------------------
