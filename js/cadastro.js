@@ -81,7 +81,6 @@ let getVagas = async () => {
     .get('http://localhost:3000/vagas')
     .then(response => {
       let vagas = response.data
-      console.log(vagas)
       mostrarRecrutador(vagas)
     })
     .catch(erro => console.log(erro))
@@ -97,9 +96,12 @@ let mostrarRecrutador = async vagas => {
       let remuneracaoVagas = document.createElement('p')
       let link = document.createElement('a')
 
+      let vagaAtual = [vagas[i].tituloVaga, vagas[i].remuneracao, vagas[i].descricaoVagas, vagas[i].id]
+
       descricaoVagas.className = 'descricao-vaga'
       remuneracaoVagas.className = 'remuneracao'
       link.className = 'container-vaga'
+      link.addEventListener('click', () => esconder(vagaAtual))
 
       descricaoVagas.innerText = vagas[i].tituloVaga
       remuneracaoVagas.innerText = `R$ ${vagas[i].remuneracao}`
@@ -122,3 +124,134 @@ let mostrarCandidato = () => {
 }
 
 // mostrarCandidato();
+
+
+function esconder(vagaAtual) {
+
+//------------------------- Mostar tipo de usuário logado --------------------------------------  
+
+  // let tipoUsuario = localStorage.getItem('tipoUsuarioLogado');
+  // console.log(tipoUsuario);
+
+//------------------------------------------------------------------------------
+
+  let modal = document.getElementById('modal')
+  modal.classList.toggle('esconder-modal')
+  let sectionVaga = document.getElementById('section-vagas')
+  sectionVaga.classList.toggle('esconder-modal')
+  mostraInforVagas(vagaAtual);
+}
+
+let mostraInforVagas = (vagaAtual)=>{
+  vagaAtual.map(()=> {
+    let idVaga = document.getElementById('id-vaga');
+    let remuneracao = document.getElementById('remuneracao');
+    let titulo = document.getElementById('titulo');
+    let descricao = document.getElementById('descricao');   
+    
+    idVaga.innerText = vagaAtual[3];
+    remuneracao.innerText = vagaAtual[1];
+    titulo.innerText = vagaAtual[0];
+    descricao.innerText = vagaAtual[2];
+  });
+  
+  let btnExcluir = document.getElementById('excluir-vaga');
+  btnExcluir.addEventListener('click', () => excluirVaga(vagaAtual));
+}
+
+let excluirVaga = async vagaAtual => {    
+    axios
+    .delete(`${urlVagas}/${vagaAtual[3]}`)
+    .then(response=> {
+      console.log(vagas);
+    })
+    .catch(erro => console.log(erro));
+}
+
+
+
+//-------------Login ------------
+
+function getUsuario (event) {
+    event.preventDefault()
+    let email = document.getElementById('email').value
+    let senha = document.getElementById('senha').value
+    axios.get(urlUsuarios)
+    .then(response => {
+        var data = response.data;
+        
+        validarLogin(data, email, senha);
+    })
+    .catch(error => console.log(error))
+}
+
+async function validarLogin (data, email, senha) {
+
+    var i = 0
+    let aux = true
+    while (aux) {
+        if(data[i].email == email && data[i].senha == senha) {
+            var tipo = data[i].tipo;
+
+            if(tipo == 'Candidato'){
+                window.location.href = './tela-inicial-candidato.html';
+            } 
+            if(tipo == 'Recrutador') {
+                window.location.href = './tela-inicial-recrutador.html';
+            }
+
+            console.log('encotrou')
+            aux = false
+
+        } else if(i == data.length -1) {
+            aux = false
+        } else {
+            console.log('nao encontrou')
+        }
+        i++
+    }
+}
+
+//---------------------------------
+
+const URL_VAGAS = 'http://localhost:3000/vagas'
+
+class Vaga {
+  constructor(tituloVaga, descricaoVagas, remuneracao) {
+    this.tituloVaga = tituloVaga
+    this.descricaoVagas = descricaoVagas
+    this.remuneracao = remuneracao
+  }
+}
+
+const enviarVaga = event => {
+  event.preventDefault()
+  cadastrarVaga()
+}
+
+const cadastrarVaga = async () => {
+  const tituloVaga = document.getElementById('titulo-vaga')
+  const descricaoVagas = document.getElementById('descricao-vaga')
+  const remuneracao = document.getElementById('remuneracao')
+
+  const novaVaga = new Vaga(
+    tituloVaga.value,
+    descricaoVagas.value,
+    remuneracao.value
+  )
+
+  try {
+    await axios.post('http://localhost:3000/vagas', novaVaga)
+    alert('Vaga cadastrada com sucesso!')
+  } catch (error) {
+    alert('Erro ao cadastrar sua vaga')
+    alert(error)
+  }
+  limparInputVagas()
+}
+
+let limparInputVagas = ()=> {
+  document.getElementById('titulo-vaga').value = '';
+  document.getElementById('descricao-vaga').value = '';
+  document.getElementById('remuneracao').value = '';
+}

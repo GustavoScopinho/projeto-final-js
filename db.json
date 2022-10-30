@@ -31,24 +31,6 @@
       "descricaoVagas": "Usar react",
       "remuneracao": "4000",
       "id": 2
-    },
-    {
-      "tituloVaga": "sdfsadf",
-      "descricaoVagas": "sasd",
-      "remuneracao": "324234",
-      "id": 3
-    },
-    {
-      "tituloVaga": "dsf",
-      "descricaoVagas": "asdfsd",
-      "remuneracao": "324234",
-      "id": 4
-    },
-    {
-      "tituloVaga": "Vaga Pedreiro",
-      "descricaoVagas": "Pedra",
-      "remuneracao": "5000",
-      "id": 5
     }
   ]
 }
