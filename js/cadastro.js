@@ -191,40 +191,49 @@ function getUsuario(event) {
     .then(response => {
       var data = response.data
 
-      validarLogin(data, email, senha)
+      validarLogin(data, email, senha);
     })
     .catch(error => console.log(error))
 }
 
 async function validarLogin(data, email, senha) {
-  var i = 0
-  let aux = true
+  var i = 0;
+  let aux = true;
+
   while (aux) {
     if (data[i].email == email && data[i].senha == senha) {
-      var tipo = data[i].tipo
-      var emailUsuario = data[i].email
+      var tipo = data[i].tipo;
+      var emailUsuario = data[i].email;
+      var senhaUsuario = data[i].senha;
+      var dataDeNascimento = data[i].dataNascimento;
+      var nomeUsuario = data[i].nome;
 
-      localStorage.setItem('tipoUsuarioLogado', tipo)
-      localStorage.setItem('emailUsuarioLogado', emailUsuario)
+
+      localStorage.setItem('tipoUsuarioLogado', tipo);
+      localStorage.setItem('emailUsuarioLogado', emailUsuario);
+      localStorage.setItem('senhaUsuarioLogado', senhaUsuario);
+      localStorage.setItem('dataNascUsuarioLogado', dataDeNascimento);
+      localStorage.setItem('nomeUsuarioLogado', nomeUsuario);
+
 
       if (tipo == 'Candidato') {
-        window.location.href = './tela-inicial-recrutador.html'
+        window.location.href = './tela-inicial-recrutador.html';
       }
       if (tipo == 'Recrutador') {
-        window.location.href = './tela-inicial-recrutador.html'
+        window.location.href = './tela-inicial-recrutador.html';
       }
 
-      console.log('encotrou')
-      aux = false
+      console.log('encotrou');
+      aux = false;
     } else if (i == data.length - 1) {
-      aux = false
+      aux = false;
       alert(
         'Usuário não encontrado. Por favor, verifique os dados informados ou cadastre-se.'
-      )
+      );
     } else {
-      console.log('nao encontrou')
+      console.log('nao encontrou');
     }
-    i++
+    i++;
   }
 }
 
@@ -270,4 +279,18 @@ let limparInputVagas = () => {
   document.getElementById('titulo-vaga').value = ''
   document.getElementById('descricao-vaga').value = ''
   document.getElementById('remuneracao').value = ''
+}
+
+
+async function logout(){
+
+
+      localStorage.removeItem('tipoUsuarioLogado');
+      localStorage.removeItem('emailUsuarioLogado');
+      localStorage.removeItem('senhaUsuarioLogado');
+      localStorage.removeItem('dataNascUsuarioLogado');
+      localStorage.removeItem('nomeUsuarioLogado');
+    
+      window.location.href = './tela-inicial-geral.html'
+  
 }
