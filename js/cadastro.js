@@ -71,17 +71,7 @@ window.addEventListener('load', () => {
   }
 
   getVagas()
-})
-
-window.addEventListener('load', () => {
-  // if(){
-    // mostrarCandidato();
-  // } else {
-  //   mostrarRecrutador();
-  // }
-
-  getVagas()
-})
+});
 
 //------------------------------------------------
 
