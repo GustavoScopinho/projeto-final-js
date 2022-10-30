@@ -109,7 +109,7 @@ let mostrarRecrutador = async vagas => {
 
       descricaoVagas.innerText = vagas[i].tituloVaga
       remuneracaoVagas.innerText = `R$ ${vagas[i].remuneracao}`
-
+      
       containerVagas.appendChild(descricaoVagas)
       containerVagas.appendChild(remuneracaoVagas)
       link.appendChild(containerVagas)
@@ -159,7 +159,55 @@ let mostraInforVagas = vagaAtual => {
 
   let btnExcluir = document.getElementById('excluir-vaga')
   btnExcluir.addEventListener('click', () => excluirVaga(vagaAtual))
+
+  mostarCandidatosDaVaga(candidaturas);
 }
+
+
+//----------------------------------Mostrar candidaturas----------------------------
+let candidaturas = [
+  {
+    nome : "joão",
+    dataDeNascimento : "15/02/1970",
+  },
+  {
+    nome : "Fernanda",
+    dataDeNascimento : "05/10/1999",
+  },
+  {
+    nome : "Alan",
+    dataDeNascimento : "15/02/1970",
+  },
+  {
+    nome : "Joaquina",
+    dataDeNascimento : "05/10/1999",
+  }
+];
+
+let mostarCandidatosDaVaga = (candidaturas)=> {  
+
+  candidaturas.map((candidatura)=> {
+    let vagasGeral = document.getElementById("vagas-geral");
+    let candidato = document.createElement('div');
+    let nome = document.createElement('p');
+    let dataNascimento = document.createElement('p');
+    let button = document.createElement('button');    
+
+    vagasGeral.className = 'vagas-geral';
+    nome.innerText = candidatura.nome;
+    dataNascimento.innerHTML = candidatura.dataDeNascimento;
+    candidato.className = "vaga";
+    button.innerText = "Reprovar"
+    button.className = 'btn-normal';
+
+    candidato.appendChild(nome);
+    candidato.appendChild(dataNascimento);
+    candidato.appendChild(button);
+    vagasGeral.appendChild(candidato);
+  });
+}
+
+//----------------------------------------------------------------------------------------------
 
 let excluirVaga = async vagaAtual => {
   axios
