@@ -256,10 +256,9 @@ let mostarCandidatosDaVaga = vagaAtual => {
 let mostarCandidatosDaVaga2 = vagaAtual => {
   let vagasGeral2 = document.getElementById('vagas-geral2');
   let candidaturas = vagaAtual[4]; 
-
+  
   if (candidaturas.length > 0) {
     candidaturas.map(candidatura => {
-
       let dataNascimentoX = candidatura.dataNiver;
   
       let dataReduzida = dataNascimentoX.substring(10, 0);
@@ -278,8 +277,9 @@ let mostarCandidatosDaVaga2 = vagaAtual => {
       dataNascimento.className = 'p2'
       candidato.className = 'vaga'
       
-
-      if(candidatura.reprovado){ 
+      let usuarioLogado = localStorage.getItem('idUsuarioLogado');
+   
+      if(candidatura.reprovado && candidatura.id == usuarioLogado){ 
         nome.classList.add('cor-vermelho');       
         dataNascimento.classList.add('cor-vermelho');
       }

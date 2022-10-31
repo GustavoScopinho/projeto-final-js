@@ -15,7 +15,16 @@
       "dataNascimento": "2022-11-04T03:00:00.000Z",
       "email": "gicelly.oliveira@dbccompany.com.br",
       "senha": "123",
-      "candidaturas": [],
+      "candidaturas": [
+        {
+          "candidaturas": {
+            "tituloVaga": "QA",
+            "descricaoVagas": "Importunar os outros desenvolvedores",
+            "remuneracao": "4500",
+            "id": 6
+          }
+        }
+      ],
       "id": 2
     },
     {
@@ -24,7 +33,16 @@
       "dataNascimento": "2022-12-01T03:00:00.000Z",
       "email": "f@r.com.br",
       "senha": "123",
-      "candidaturas": [],
+      "candidaturas": [
+        {
+          "candidaturas": {
+            "tituloVaga": "QA",
+            "descricaoVagas": "Importunar os outros desenvolvedores",
+            "remuneracao": "4500",
+            "id": 6
+          }
+        }
+      ],
       "id": 3
     }
   ],
@@ -54,7 +72,20 @@
       "tituloVaga": "QA",
       "descricaoVagas": "Importunar os outros desenvolvedores",
       "remuneracao": "4500",
-      "candidatos": [],
+      "candidatos": [
+        {
+          "nome": "Gicelly",
+          "dataNiver": "2022-11-04T03:00:00.000Z",
+          "id": "2",
+          "reprovado": true
+        },
+        {
+          "nome": "João",
+          "dataNiver": "2022-12-01T03:00:00.000Z",
+          "id": "3",
+          "reprovado": true
+        }
+      ],
       "id": 6
     }
   ]
