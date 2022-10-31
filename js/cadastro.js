@@ -124,32 +124,34 @@ let mostrarRecrutador = async vagas => {
 
 let mostrarCandidato = () => {
   let btn = document.getElementById('btn-cadastro')
-  btn.className = 'esconder'
+  btn.className = 'esconder';
+
+
+
 }
 
-// mostrarCandidato();
 
 async function esconder(vagaAtual) {
   //------------------------- Mostar tipo de usuário logado --------------------------------------
 
   let tipoUsuario = localStorage.getItem('tipoUsuarioLogado');
-  console.log(typeof tipoUsuario);
 
   //------------------------------------------------------------------------------
 
   if(tipoUsuario == "Candidato"){
-    window.location.href = './tela-vaga-usuário.html'
+    let modal2 = document.getElementById("modal2");
+    modal2.classList.toggle('esconder-modal')    
+    let sectionVaga = document.getElementById('section-vagas')
+    sectionVaga.classList.toggle('esconder-modal')
     mostraInforVagasUsuarios(vagaAtual);
-  }
-  
-  setTimeout(()=>{
+  } else {
     let modal = document.getElementById('modal')
     modal.classList.toggle('esconder-modal')
     let sectionVaga = document.getElementById('section-vagas')
     sectionVaga.classList.toggle('esconder-modal')
-  }, 100);
-
-  mostraInforVagas(vagaAtual);
+    mostraInforVagas(vagaAtual);
+  }
+  
 }
 
 let mostraInforVagas = vagaAtual => {
@@ -172,16 +174,11 @@ let mostraInforVagas = vagaAtual => {
 }
 
 let mostraInforVagasUsuarios = vagaAtual =>{
-  let idVaga2 = document.getElementById('id-vaga-usuario')
-  console.log(idVaga2)
-
-
   vagaAtual.map(() => {
-    let idVaga2 = document.getElementById('id-vaga-usuario')
+    let idVaga2 = document.getElementById('id-vaga2')
     let remuneracao2 = document.getElementById('remuneracao2')
     let titulo2 = document.getElementById('titulo2')
     let descricao2 = document.getElementById('descricao2')
-
     
 
     idVaga2.innerText = vagaAtual[3]
@@ -190,7 +187,7 @@ let mostraInforVagasUsuarios = vagaAtual =>{
     descricao2.innerText = vagaAtual[2]
   })
 
-  mostarCandidatosDaVaga(candidaturas);
+  mostarCandidatosDaVaga2(candidaturas);
 }
 
 
@@ -246,6 +243,38 @@ let mostarCandidatosDaVaga = (candidaturas)=> {
   }
 }
 
+
+let mostarCandidatosDaVaga2 = (candidaturas)=> {  
+  let vagasGeral2 = document.getElementById("vagas-geral2");
+
+  if (candidaturas.length > 0) {
+    candidaturas.map((candidatura)=> {      
+      let candidato = document.createElement('div');
+      let nome = document.createElement('p');
+      let dataNascimento = document.createElement('p');  
+
+      vagasGeral2.className = 'vagas-geral';
+      nome.innerText = candidatura.nome;
+      nome.className = 'p2';
+      dataNascimento.innerHTML = candidatura.dataDeNascimento;
+      dataNascimento.className = 'p2';
+      candidato.className = "vaga";
+
+
+      candidato.appendChild(nome);
+      candidato.appendChild(dataNascimento);
+      vagasGeral2.appendChild(candidato);
+    });
+
+  } else {
+    vagasGeral2.innerHTML = `<div style="margin: 30px 0px; justify-content: center;" class="vaga" id="container-vagas">
+    <div class="sem-vaga">Nenhum candidato cadastrado</div>
+  </div>`
+  }
+}
+
+
+
 //----------------------------------------------------------------------------------------------
 
 let excluirVaga = async vagaAtual => {
@@ -300,7 +329,6 @@ async function validarLogin(data, email, senha) {
         window.location.href = './tela-inicial-recrutador.html';
       }
 
-      console.log('encotrou');
       aux = false;
     } else if (i == data.length - 1) {
       aux = false;

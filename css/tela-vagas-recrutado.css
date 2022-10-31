@@ -140,6 +140,10 @@ main{
     min-width: 180px;
 }
 
+.vagas-container .vaga .p2{
+   min-width: 0px;
+}
+
 .vaga .btn-normal {
     background-color: #FE6663;
     color: #FFFFFF;
