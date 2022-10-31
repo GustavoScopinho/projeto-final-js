@@ -4,7 +4,6 @@ const url = 'http://localhost:3000'
 const urlUsuarios = `${url}/usuarios`
 const urlVagas = `${url}/vagas`
 
-console.log('dasds')
 
 class Usuario {
   constructor(tipo, nome, dataNascimento, email, senha) {
@@ -21,7 +20,7 @@ class Usuario {
 //  ------------------------------
 
 // addCandidaturas()
-console.log('aaa')
+
 //  --------------------------
 
 const enviar = event => {
@@ -111,7 +110,7 @@ let mostrarRecrutador = async vagas => {
         vagas[i].descricaoVagas,
         vagas[i].id
       ]
-
+      
       descricaoVagas.className = 'descricao-vaga'
       remuneracaoVagas.className = 'remuneracao'
       link.className = 'container-vaga'
@@ -132,6 +131,7 @@ let mostrarRecrutador = async vagas => {
   }
 }
 
+
 let mostrarCandidato = () => {
   let btn = document.getElementById('btn-cadastro')
   btn.className = 'esconder'
@@ -139,7 +139,7 @@ let mostrarCandidato = () => {
 
 async function esconder(vagaAtual) {
   //------------------------- Mostar tipo de usuário logado --------------------------------------
-
+  
   let tipoUsuario = localStorage.getItem('tipoUsuarioLogado')
 
   //------------------------------------------------------------------------------
@@ -171,7 +171,7 @@ let mostraInforVagas = vagaAtual => {
     titulo.innerText = vagaAtual[0]
     descricao.innerText = vagaAtual[2]
   })
-  console.log(vagaAtual)
+ 
 
   let btnExcluir = document.getElementById('excluir-vaga')
   btnExcluir.addEventListener('click', () => excluirVaga(vagaAtual))
@@ -197,7 +197,42 @@ let mostraInforVagasUsuarios = vagaAtual => {
     candidatarVaga(vagaAtual)
   )
   mostarCandidatosDaVaga2(candidaturas)
+
+  pegarCandidaturas(vagaAtual)
 }
+
+
+let pegarCandidaturas = async (vagaAtual) => {
+  axios
+    .get(urlUsuarios)
+    .then(response => {
+      let usuarios = response.data
+      filtrarCandidaturas(usuarios, vagaAtual);
+    })
+    .catch(erro => console.log(erro))
+}
+
+
+let filtrarCandidaturas = (usuarios, vagaAtual)=>{
+
+  
+
+  let arrFiltrado = usuarios.filter((el, i)=>{
+
+    console.log(el.nome)
+    
+    //  if(el.candidaturas.id[i] == vagaAtual[3]){
+    //   console.log(true);
+    // } else {
+    //   console.log(false);
+    // }
+
+  })
+
+}
+
+
+
 
 //----------------------------------Mostrar candidaturas----------------------------
 let candidaturas = [
@@ -282,7 +317,6 @@ async function candidatarVaga(vagaAtual) {
 
   const response = await fetch(`${urlUsuarios}`)
   let vagasResponse = await response.json()
-  console.log(typeof vagasResponse)
   let percorrerUsuarios = vagasResponse.filter(
     usuarios => usuarios.id == usuarioLogado
   )[0].candidaturas

@@ -15,22 +15,6 @@
       "id": 1
     },
     {
-      "0": [
-        {
-          "tituloVaga": "Front end React",
-          "descricaoVagas": "Usar react",
-          "remuneracao": "4000",
-          "id": 3
-        }
-      ],
-      "1": {
-        "candidaturas": {
-          "tituloVaga": "Front end React",
-          "descricaoVagas": "Usar react",
-          "remuneracao": "4000",
-          "id": 3
-        }
-      },
       "tipo": "Candidato",
       "nome": "AAAAAAAAAAAAAAAAAAAA",
       "dataNascimento": "2022-11-04T03:00:00.000Z",
@@ -71,7 +55,7 @@
         },
         {
           "candidaturas": {
-            "tituloVaga": "Vaga pinto",
+            "tituloVaga": "Vaga pintor",
             "descricaoVagas": "Pintar",
             "remuneracao": "5000",
             "id": 4
