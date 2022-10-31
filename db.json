@@ -104,12 +104,14 @@
         {
           "nome": "Gicelly",
           "dataNiver": "2022-11-04T03:00:00.000Z",
-          "id": "2"
+          "id": "2",
+          "reprovado": true
         },
         {
           "nome": "João",
           "dataNiver": "2022-12-01T03:00:00.000Z",
-          "id": "3"
+          "id": "3",
+          "reprovado": true
         }
       ],
       "id": 6

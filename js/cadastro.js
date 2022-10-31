@@ -218,14 +218,7 @@ let mostarCandidatosDaVaga = vagaAtual => {
       let dataNascimento = document.createElement('p')
       let button = document.createElement('button')
       button.addEventListener('click', () =>  reprovarCandidato(vagaAtual, candidatura.id))
-      if(candidatura.reprovado){
-        button.setAttribute("disabled", "")
-        button.classList.add(".desabilitado")
-      }else{
-        
-      }
-
-     
+  
 
       vagasGeral.className = 'vagas-geral'
       nome.innerText = candidatura.nome
@@ -233,6 +226,17 @@ let mostarCandidatosDaVaga = vagaAtual => {
       candidato.className = 'vaga'
       button.innerText = 'Reprovar'
       button.className = 'btn-normal'
+
+
+      if(candidatura.reprovado){        
+        button.classList.add("desabilitado");
+        button.setAttribute("disabled", "")
+      }else{
+        
+      }  
+
+
+
 
       candidato.appendChild(nome)
       candidato.appendChild(dataNascimento)
