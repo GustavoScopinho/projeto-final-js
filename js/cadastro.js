@@ -77,12 +77,20 @@ window.addEventListener('load', () => {
   let tipoUsuarioLogado = localStorage.getItem('tipoUsuarioLogado')
   if (tipoUsuarioLogado === 'Candidato' && 'emailUsuarioLogado' != null) {
     mostrarCandidato()
+    alterarCorTexto()
   }
 
   getVagas()
 })
 
 //------------------------------------------------
+
+let alterarCorTexto = ()=>{
+
+}
+
+
+
 
 let getVagas = async () => {
   axios
@@ -202,7 +210,7 @@ let mostraInforVagasUsuarios = vagaAtual => {
 
 let mostarCandidatosDaVaga = vagaAtual => {
   let vagasGeral = document.getElementById('vagas-geral')
-  let candidaturas = vagaAtual[4];
+  let candidaturas = vagaAtual[4];  
   if (candidaturas.length > 0) {
     candidaturas.map(candidatura => {
 
@@ -211,14 +219,14 @@ let mostarCandidatosDaVaga = vagaAtual => {
     let dataReduzida = dataNascimentoX.substring(10, 0);
     const dataFormatada = dataReduzida.split('-').reverse();
     let dataFinal = `${dataFormatada[0]}/${dataFormatada[1]}/${dataFormatada[2]}`;
-
+    
 
       let candidato = document.createElement('div')
       let nome = document.createElement('p')
       let dataNascimento = document.createElement('p')
       let button = document.createElement('button')
-      button.addEventListener('click', () =>  reprovarCandidato(vagaAtual, candidatura.id))
-  
+      button.addEventListener('click', () =>  reprovarCandidato(vagaAtual, candidatura.id))    
+      
 
       vagasGeral.className = 'vagas-geral'
       nome.innerText = candidatura.nome
@@ -231,12 +239,7 @@ let mostarCandidatosDaVaga = vagaAtual => {
       if(candidatura.reprovado){        
         button.classList.add("desabilitado");
         button.setAttribute("disabled", "")
-      }else{
-        
-      }  
-
-
-
+      }
 
       candidato.appendChild(nome)
       candidato.appendChild(dataNascimento)
@@ -274,6 +277,12 @@ let mostarCandidatosDaVaga2 = vagaAtual => {
       dataNascimento.innerHTML = dataFinal
       dataNascimento.className = 'p2'
       candidato.className = 'vaga'
+      
+
+      if(candidatura.reprovado){ 
+        nome.classList.add('cor-vermelho');       
+        dataNascimento.classList.add('cor-vermelho');
+      }
 
       candidato.appendChild(nome)
       candidato.appendChild(dataNascimento)
@@ -502,8 +511,6 @@ function reprovarCandidato(vagaAtual, idCandidato){
       candidatos: vagaAtual[4]
   })
   }
-
-
 
   // console.log(vagaAtual[4][1].reprovado);
 

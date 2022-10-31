@@ -2,10 +2,10 @@
   "usuarios": [
     {
       "tipo": "Recrutador",
-      "nome": "Claudao",
+      "nome": "Claudao Adm",
       "dataNascimento": "1980-11-10T03:00:00.000Z",
-      "email": "dads@hotmail.com",
-      "senha": "456",
+      "email": "adm@adm.com",
+      "senha": "123",
       "candidaturas": [],
       "id": 1
     },
@@ -15,24 +15,7 @@
       "dataNascimento": "2022-11-04T03:00:00.000Z",
       "email": "gicelly.oliveira@dbccompany.com.br",
       "senha": "123",
-      "candidaturas": [
-        {
-          "candidaturas": {
-            "tituloVaga": "Vaga Com usuarios",
-            "descricaoVagas": "vagas ",
-            "remuneracao": "0000000000000",
-            "id": 6
-          }
-        },
-        {
-          "candidaturas": {
-            "tituloVaga": "alguma",
-            "descricaoVagas": "coisa",
-            "remuneracao": "15000",
-            "id": 5
-          }
-        }
-      ],
+      "candidaturas": [],
       "id": 2
     },
     {
@@ -41,79 +24,37 @@
       "dataNascimento": "2022-12-01T03:00:00.000Z",
       "email": "f@r.com.br",
       "senha": "123",
-      "candidaturas": [
-        {
-          "candidaturas": {
-            "tituloVaga": "Vaga Com usuarios",
-            "descricaoVagas": "vagas ",
-            "remuneracao": "0000000000000",
-            "id": 6
-          }
-        },
-        {
-          "candidaturas": {
-            "tituloVaga": "alguma",
-            "descricaoVagas": "coisa",
-            "remuneracao": "15000",
-            "id": 5
-          }
-        }
-      ],
+      "candidaturas": [],
       "id": 3
     }
   ],
   "vagas": [
     {
-      "tituloVaga": "Vaga pintor",
-      "descricaoVagas": "Pintar",
+      "tituloVaga": "Vaga Backend",
+      "descricaoVagas": "Sofrer com Java",
       "remuneracao": "5000",
       "candidatos": [],
       "id": 1
     },
     {
       "tituloVaga": "Front end React",
-      "descricaoVagas": "Usar react",
+      "descricaoVagas": "Colorir a tela",
       "remuneracao": "4000",
       "candidatos": [],
       "id": 2
     },
     {
-      "tituloVaga": "alguma",
-      "descricaoVagas": "coisa",
+      "tituloVaga": "Desenvolvedor Senior",
+      "descricaoVagas": "Babá de júnior",
       "remuneracao": "15000",
-      "candidatos": [
-        {
-          "nome": "Gicelly",
-          "dataNiver": "2022-11-04T03:00:00.000Z",
-          "id": "2"
-        },
-        {
-          "nome": "João",
-          "dataNiver": "2022-12-01T03:00:00.000Z",
-          "id": "3",
-          "reprovado": true
-        }
-      ],
+      "candidatos": [],
       "id": 5
     },
     {
-      "tituloVaga": "Vaga Com usuarios",
-      "descricaoVagas": "vagas ",
-      "remuneracao": "0000000000000",
-      "candidatos": [
-        {
-          "nome": "Gicelly",
-          "dataNiver": "2022-11-04T03:00:00.000Z",
-          "id": "2",
-          "reprovado": true
-        },
-        {
-          "nome": "João",
-          "dataNiver": "2022-12-01T03:00:00.000Z",
-          "id": "3",
-          "reprovado": true
-        }
-      ],
+      "tituloVaga": "QA",
+      "descricaoVagas": "Importunar os outros desenvolvedores",
+      "remuneracao": "4500",
+      "candidatos": [],
       "id": 6
     }
   ]
