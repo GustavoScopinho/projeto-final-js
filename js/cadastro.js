@@ -1,4 +1,4 @@
-// const { default: axios } = require('axios')
+
 
 const url = 'http://localhost:3000'
 const urlUsuarios = `${url}/usuarios`
@@ -217,6 +217,15 @@ let mostarCandidatosDaVaga = vagaAtual => {
       let nome = document.createElement('p')
       let dataNascimento = document.createElement('p')
       let button = document.createElement('button')
+      button.addEventListener('click', () =>  reprovarCandidato(vagaAtual, candidatura.id))
+      if(candidatura.reprovado){
+        button.setAttribute("disabled", "")
+        button.classList.add(".desabilitado")
+      }else{
+        
+      }
+
+     
 
       vagasGeral.className = 'vagas-geral'
       nome.innerText = candidatura.nome
@@ -318,7 +327,8 @@ const candidatos = {
   candidato: {
     nome: nomeUsuarioLogado,
     dataNiver: dataNascUsuarioLogado,
-    id: usuarioLogadoId
+    id: usuarioLogadoId,
+    reprovado: false
   }
 }
 
@@ -463,4 +473,34 @@ async function logout() {
   localStorage.removeItem('nomeUsuarioLogado')
 
   window.location.href = './tela-inicial-geral.html'
+}
+
+
+class Candidatura {
+  constructor (idCandidato){
+    this.idCandidato = idCandidato;
+    this.reprovado = false; // booleano
+    }
+  }
+ 
+  
+
+function reprovarCandidato(vagaAtual, idCandidato){
+  
+  let candidaturaAtual = vagaAtual[4].findIndex(i => idCandidato == i.id);
+  console.log(candidaturaAtual)
+  if(candidaturaAtual != -1){
+    vagaAtual[4][candidaturaAtual].reprovado = true;
+    console.log(vagaAtual)
+    console.log(vagaAtual[4][candidaturaAtual])
+
+    axios.patch(`${urlVagas}/${vagaAtual[3]}`, {
+      candidatos: vagaAtual[4]
+  })
+  }
+
+
+
+  // console.log(vagaAtual[4][1].reprovado);
+
 }

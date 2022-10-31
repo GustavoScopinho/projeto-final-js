@@ -49,6 +49,14 @@
             "remuneracao": "0000000000000",
             "id": 6
           }
+        },
+        {
+          "candidaturas": {
+            "tituloVaga": "alguma",
+            "descricaoVagas": "coisa",
+            "remuneracao": "15000",
+            "id": 5
+          }
         }
       ],
       "id": 3
@@ -78,6 +86,12 @@
           "nome": "Gicelly",
           "dataNiver": "2022-11-04T03:00:00.000Z",
           "id": "2"
+        },
+        {
+          "nome": "João",
+          "dataNiver": "2022-12-01T03:00:00.000Z",
+          "id": "3",
+          "reprovado": true
         }
       ],
       "id": 5
