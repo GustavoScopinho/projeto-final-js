@@ -6,70 +6,16 @@
       "dataNascimento": "1980-11-10T03:00:00.000Z",
       "email": "dads@hotmail.com",
       "senha": "456",
-      "candidaturas": {
-        "tituloVaga": "Vaga pinto",
-        "descricaoVagas": "Pintar",
-        "remuneracao": "5000",
-        "id": 4
-      },
+      "candidaturas": [],
       "id": 1
     },
     {
       "tipo": "Candidato",
-      "nome": "AAAAAAAAAAAAAAAAAAAA",
+      "nome": "Gicelly",
       "dataNascimento": "2022-11-04T03:00:00.000Z",
       "email": "gicelly.oliveira@dbccompany.com.br",
       "senha": "123",
-      "candidaturas": [
-        {
-          "candidaturas": {
-            "tituloVaga": "Vaga pinto",
-            "descricaoVagas": "Pintar",
-            "remuneracao": "5000",
-            "id": 4
-          }
-        },
-        {
-          "candidaturas": {
-            "tituloVaga": "Front end React",
-            "descricaoVagas": "Usar react",
-            "remuneracao": "4000",
-            "id": 3
-          }
-        },
-        {
-          "candidaturas": {
-            "tituloVaga": "Vaga pintor",
-            "descricaoVagas": "Pintar",
-            "remuneracao": "5000",
-            "id": 1
-          }
-        },
-        {
-          "candidaturas": {
-            "tituloVaga": "Front end React",
-            "descricaoVagas": "Usar react",
-            "remuneracao": "4000",
-            "id": 2
-          }
-        },
-        {
-          "candidaturas": {
-            "tituloVaga": "Vaga pintor",
-            "descricaoVagas": "Pintar",
-            "remuneracao": "5000",
-            "id": 4
-          }
-        },
-        {
-          "candidaturas": {
-            "tituloVaga": "alguma",
-            "descricaoVagas": "coisa",
-            "remuneracao": "15000",
-            "id": 5
-          }
-        }
-      ],
+      "candidaturas": [],
       "id": 2
     }
   ],
@@ -78,31 +24,29 @@
       "tituloVaga": "Vaga pintor",
       "descricaoVagas": "Pintar",
       "remuneracao": "5000",
+      "candidatos": [],
       "id": 1
     },
     {
       "tituloVaga": "Front end React",
       "descricaoVagas": "Usar react",
       "remuneracao": "4000",
+      "candidatos": [],
       "id": 2
-    },
-    {
-      "tituloVaga": "Front end React",
-      "descricaoVagas": "Usar react",
-      "remuneracao": "4000",
-      "id": 3
-    },
-    {
-      "tituloVaga": "Vaga pinto",
-      "descricaoVagas": "Pintar",
-      "remuneracao": "5000",
-      "id": 4
     },
     {
       "tituloVaga": "alguma",
       "descricaoVagas": "coisa",
       "remuneracao": "15000",
+      "candidatos": [],
       "id": 5
+    },
+    {
+      "tituloVaga": "Vaga Com usuarios",
+      "descricaoVagas": "vagas ",
+      "remuneracao": "0000000000000",
+      "candidatos": [],
+      "id": 6
     }
   ]
 }

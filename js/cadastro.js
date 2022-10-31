@@ -215,17 +215,22 @@ let pegarCandidaturas = async (vagaAtual) => {
 
 let filtrarCandidaturas = (usuarios, vagaAtual)=>{
 
-  
+  console.log(vagaAtual);
 
   let arrFiltrado = usuarios.filter((el, i)=>{
 
-    console.log(el.nome)
     
-    //  if(el.candidaturas.id[i] == vagaAtual[3]){
-    //   console.log(true);
-    // } else {
-    //   console.log(false);
-    // }
+     
+
+
+
+
+    // let dataNascimento = el.dataNascimento;
+    // let dataReduzida = dataNascimento.substring(10, 0);
+    // const dataFormatada = dataReduzida.split('-').reverse();
+    // let dataFinal = `${dataFormatada[0]}/${dataFormatada[1]}/${dataFormatada[2]}`;
+    // console.log(dataFinal);
+
 
   })
 
@@ -313,12 +318,14 @@ let mostarCandidatosDaVaga2 = candidaturas => {
 //----------------------------------------------------------------------------------------------
 
 async function candidatarVaga(vagaAtual) {
-  let usuarioLogado = localStorage.getItem('idUsuarioLogado')
+  let usuarioLogadoId = localStorage.getItem('idUsuarioLogado')
+  let nomeUsuarioLogado = localStorage.getItem('nomeUsuarioLogado')
+  let dataNascUsuarioLogado = localStorage.getItem('dataNascUsuarioLogado')
 
   const response = await fetch(`${urlUsuarios}`)
   let vagasResponse = await response.json()
   let percorrerUsuarios = vagasResponse.filter(
-    usuarios => usuarios.id == usuarioLogado
+    usuarios => usuarios.id == usuarioLogadoId
   )[0].candidaturas
 
   const candidaturasUm = {
@@ -332,7 +339,7 @@ async function candidatarVaga(vagaAtual) {
 
   percorrerUsuarios.push(candidaturasUm)
 
-  await fetch(`${urlUsuarios}/${usuarioLogado}`, {
+  await fetch(`${urlUsuarios}/${usuarioLogadoId}`, {
     method: 'PATCH',
     body: JSON.stringify({
       candidaturas: percorrerUsuarios
@@ -341,6 +348,36 @@ async function candidatarVaga(vagaAtual) {
       'Content-type': 'application/json; charset=UTF-8'
     }
   })
+
+
+const responseVagas = await fetch(`${urlVagas}`)
+let vagasResponse2 = await responseVagas.json()
+let percorrerVagas2 = vagasResponse2.filter(
+  vagas => vagas.id == vagaAtual[3]
+)
+
+
+console.log(percorrerVagas2)
+
+
+const candidatos = {
+  candidato: {
+    nome: nomeUsuarioLogado,
+    dataNiver: dataNascUsuarioLogado,
+    id: usuarioLogadoId
+  }
+}
+
+await fetch(`${urlVagas}/${vagaAtual[3]}`, {
+  method: 'PATCH',
+  body: JSON.stringify({
+    candidatos: [...percorrerVagas2[0].candidatos, candidatos.candidato]
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8'
+  }
+})
+
 }
 
 // FIM CANDIDATURAS
@@ -419,6 +456,7 @@ class Vaga {
     this.tituloVaga = tituloVaga
     this.descricaoVagas = descricaoVagas
     this.remuneracao = remuneracao
+    this.candidatos = [];
   }
 }
 
