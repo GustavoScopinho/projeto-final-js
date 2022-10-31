@@ -265,6 +265,8 @@ let mostarCandidatosDaVaga2 = vagaAtual => {
       const dataFormatada = dataReduzida.split('-').reverse();
       let dataFinal = `${dataFormatada[0]}/${dataFormatada[1]}/${dataFormatada[2]}`;
 
+      let btnVaga = document.getElementById('btnCandidatarVaga')
+
 
       let candidato = document.createElement('div')
       let nome = document.createElement('p')
@@ -283,7 +285,26 @@ let mostarCandidatosDaVaga2 = vagaAtual => {
         nome.classList.add('cor-vermelho');       
         dataNascimento.classList.add('cor-vermelho');
       }
+//-----------------------------------------------------------------------------------------------------------------------------------------
+      if(candidatura.reprovado){
+        btnVaga.innerText = "Cancelar Candidatura";
+        btnVaga.classList.add('desabilitado');
+        btnVaga.addEventListener('click',  () => funcaoVazia())//-------------------------------Função preparada para excluir candidatura
+      }
+      
+      candidaturas.map((el)=> {
+        let usuarioLogadoId = localStorage.getItem('idUsuarioLogado')
+        if(el.id == usuarioLogadoId){
+          btnVaga.innerText = "Cancelar Candidatura";
+          btnVaga.classList.add('btn-cancelar-vaga');
+          btnVaga.addEventListener('click', () => funcaoVazia())//-------------------------------Função preparada para excluir candidatura
+        }        
+      })
 
+      let funcaoVazia = ()=> {
+        // Tem que ser declarada fora desse escopo. Coloquei aqui só para não mostrar que a função não foi definida
+      }
+//---------------------------------------------------------------------------------------------------------------------------------------------
       candidato.appendChild(nome)
       candidato.appendChild(dataNascimento)
       vagasGeral2.appendChild(candidato)
@@ -307,6 +328,7 @@ async function candidatarVaga(vagaAtual) {
   let percorrerUsuarios = vagasResponse.filter(
     usuarios => usuarios.id == usuarioLogadoId
   )[0].candidaturas
+
 
   const candidaturasUm = {
     candidaturas: {
