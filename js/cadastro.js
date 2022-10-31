@@ -169,7 +169,7 @@ let mostraInforVagas = vagaAtual => {
   console.log(vagaAtual)
 
   let btnExcluir = document.getElementById('excluir-vaga')
-  btnExcluir.addEventListener('click', () => candidatarVaga(vagaAtual))
+  btnExcluir.addEventListener('click', () => excluirVaga(vagaAtual))
 }
 
 async function candidatarVaga(vagaAtual) {
@@ -203,6 +203,8 @@ async function candidatarVaga(vagaAtual) {
     }
   })
 }
+
+// FIM CANDIDATURAS
 
 let excluirVaga = async vagaAtual => {
   axios
