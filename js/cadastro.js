@@ -1,6 +1,10 @@
+// const { default: axios } = require('axios')
+
 const url = 'http://localhost:3000'
 const urlUsuarios = `${url}/usuarios`
 const urlVagas = `${url}/vagas`
+
+console.log('dasds')
 
 class Usuario {
   constructor(tipo, nome, dataNascimento, email, senha) {
@@ -13,6 +17,12 @@ class Usuario {
     this.candidaturas = []
   }
 }
+
+//  ------------------------------
+
+// addCandidaturas()
+console.log('aaa')
+//  --------------------------
 
 const enviar = event => {
   event.preventDefault()
@@ -71,7 +81,7 @@ window.addEventListener('load', () => {
   }
 
   getVagas()
-});
+})
 
 //------------------------------------------------
 
@@ -109,7 +119,7 @@ let mostrarRecrutador = async vagas => {
 
       descricaoVagas.innerText = vagas[i].tituloVaga
       remuneracaoVagas.innerText = `R$ ${vagas[i].remuneracao}`
-      
+
       containerVagas.appendChild(descricaoVagas)
       containerVagas.appendChild(remuneracaoVagas)
       link.appendChild(containerVagas)
@@ -124,34 +134,29 @@ let mostrarRecrutador = async vagas => {
 
 let mostrarCandidato = () => {
   let btn = document.getElementById('btn-cadastro')
-  btn.className = 'esconder';
-
-
-
+  btn.className = 'esconder'
 }
-
 
 async function esconder(vagaAtual) {
   //------------------------- Mostar tipo de usuário logado --------------------------------------
 
-  let tipoUsuario = localStorage.getItem('tipoUsuarioLogado');
+  let tipoUsuario = localStorage.getItem('tipoUsuarioLogado')
 
   //------------------------------------------------------------------------------
 
-  if(tipoUsuario == "Candidato"){
-    let modal2 = document.getElementById("modal2");
-    modal2.classList.toggle('esconder-modal')    
+  if (tipoUsuario == 'Candidato') {
+    let modal2 = document.getElementById('modal2')
+    modal2.classList.toggle('esconder-modal')
     let sectionVaga = document.getElementById('section-vagas')
     sectionVaga.classList.toggle('esconder-modal')
-    mostraInforVagasUsuarios(vagaAtual);
+    mostraInforVagasUsuarios(vagaAtual)
   } else {
     let modal = document.getElementById('modal')
     modal.classList.toggle('esconder-modal')
     let sectionVaga = document.getElementById('section-vagas')
     sectionVaga.classList.toggle('esconder-modal')
-    mostraInforVagas(vagaAtual);
+    mostraInforVagas(vagaAtual)
   }
-  
 }
 
 let mostraInforVagas = vagaAtual => {
@@ -166,20 +171,20 @@ let mostraInforVagas = vagaAtual => {
     titulo.innerText = vagaAtual[0]
     descricao.innerText = vagaAtual[2]
   })
+  console.log(vagaAtual)
 
   let btnExcluir = document.getElementById('excluir-vaga')
   btnExcluir.addEventListener('click', () => excluirVaga(vagaAtual))
 
-  mostarCandidatosDaVaga(candidaturas);
+  mostarCandidatosDaVaga(candidaturas)
 }
 
-let mostraInforVagasUsuarios = vagaAtual =>{
+let mostraInforVagasUsuarios = vagaAtual => {
   vagaAtual.map(() => {
     let idVaga2 = document.getElementById('id-vaga2')
     let remuneracao2 = document.getElementById('remuneracao2')
     let titulo2 = document.getElementById('titulo2')
     let descricao2 = document.getElementById('descricao2')
-    
 
     idVaga2.innerText = vagaAtual[3]
     remuneracao2.innerText = vagaAtual[1]
@@ -187,55 +192,55 @@ let mostraInforVagasUsuarios = vagaAtual =>{
     descricao2.innerText = vagaAtual[2]
   })
 
-  mostarCandidatosDaVaga2(candidaturas);
+  let letBtnCandidatarVaga = document.getElementById('btnCandidatarVaga')
+  letBtnCandidatarVaga.addEventListener('click', () =>
+    candidatarVaga(vagaAtual)
+  )
+  mostarCandidatosDaVaga2(candidaturas)
 }
-
-
-
 
 //----------------------------------Mostrar candidaturas----------------------------
 let candidaturas = [
   {
-    nome : "joão",
-    dataDeNascimento : "15/02/1970",
+    nome: 'joão',
+    dataDeNascimento: '15/02/1970'
   },
   {
-    nome : "Fernanda",
-    dataDeNascimento : "05/10/1999",
+    nome: 'Fernanda',
+    dataDeNascimento: '05/10/1999'
   },
   {
-    nome : "Alan",
-    dataDeNascimento : "15/02/1970",
+    nome: 'Alan',
+    dataDeNascimento: '15/02/1970'
   },
   {
-    nome : "Joaquina",
-    dataDeNascimento : "05/10/1999",
+    nome: 'Joaquina',
+    dataDeNascimento: '05/10/1999'
   }
-];
+]
 
-let mostarCandidatosDaVaga = (candidaturas)=> {  
-  let vagasGeral = document.getElementById("vagas-geral");
+let mostarCandidatosDaVaga = candidaturas => {
+  let vagasGeral = document.getElementById('vagas-geral')
 
   if (candidaturas.length > 0) {
-    candidaturas.map((candidatura)=> {      
-      let candidato = document.createElement('div');
-      let nome = document.createElement('p');
-      let dataNascimento = document.createElement('p');
-      let button = document.createElement('button');    
+    candidaturas.map(candidatura => {
+      let candidato = document.createElement('div')
+      let nome = document.createElement('p')
+      let dataNascimento = document.createElement('p')
+      let button = document.createElement('button')
 
-      vagasGeral.className = 'vagas-geral';
-      nome.innerText = candidatura.nome;
-      dataNascimento.innerHTML = candidatura.dataDeNascimento;
-      candidato.className = "vaga";
-      button.innerText = "Reprovar"
-      button.className = 'btn-normal';
+      vagasGeral.className = 'vagas-geral'
+      nome.innerText = candidatura.nome
+      dataNascimento.innerHTML = candidatura.dataDeNascimento
+      candidato.className = 'vaga'
+      button.innerText = 'Reprovar'
+      button.className = 'btn-normal'
 
-      candidato.appendChild(nome);
-      candidato.appendChild(dataNascimento);
-      candidato.appendChild(button);
-      vagasGeral.appendChild(candidato);
-    });
-
+      candidato.appendChild(nome)
+      candidato.appendChild(dataNascimento)
+      candidato.appendChild(button)
+      vagasGeral.appendChild(candidato)
+    })
   } else {
     vagasGeral.innerHTML = `<div style="margin: 30px 0px; justify-content: center;" class="vaga" id="container-vagas">
     <div class="sem-vaga">Nenhum candidato cadastrado</div>
@@ -243,29 +248,26 @@ let mostarCandidatosDaVaga = (candidaturas)=> {
   }
 }
 
-
-let mostarCandidatosDaVaga2 = (candidaturas)=> {  
-  let vagasGeral2 = document.getElementById("vagas-geral2");
+let mostarCandidatosDaVaga2 = candidaturas => {
+  let vagasGeral2 = document.getElementById('vagas-geral2')
 
   if (candidaturas.length > 0) {
-    candidaturas.map((candidatura)=> {      
-      let candidato = document.createElement('div');
-      let nome = document.createElement('p');
-      let dataNascimento = document.createElement('p');  
+    candidaturas.map(candidatura => {
+      let candidato = document.createElement('div')
+      let nome = document.createElement('p')
+      let dataNascimento = document.createElement('p')
 
-      vagasGeral2.className = 'vagas-geral';
-      nome.innerText = candidatura.nome;
-      nome.className = 'p2';
-      dataNascimento.innerHTML = candidatura.dataDeNascimento;
-      dataNascimento.className = 'p2';
-      candidato.className = "vaga";
+      vagasGeral2.className = 'vagas-geral'
+      nome.innerText = candidatura.nome
+      nome.className = 'p2'
+      dataNascimento.innerHTML = candidatura.dataDeNascimento
+      dataNascimento.className = 'p2'
+      candidato.className = 'vaga'
 
-
-      candidato.appendChild(nome);
-      candidato.appendChild(dataNascimento);
-      vagasGeral2.appendChild(candidato);
-    });
-
+      candidato.appendChild(nome)
+      candidato.appendChild(dataNascimento)
+      vagasGeral2.appendChild(candidato)
+    })
   } else {
     vagasGeral2.innerHTML = `<div style="margin: 30px 0px; justify-content: center;" class="vaga" id="container-vagas">
     <div class="sem-vaga">Nenhum candidato cadastrado</div>
@@ -273,9 +275,41 @@ let mostarCandidatosDaVaga2 = (candidaturas)=> {
   }
 }
 
-
-
 //----------------------------------------------------------------------------------------------
+
+async function candidatarVaga(vagaAtual) {
+  let usuarioLogado = localStorage.getItem('idUsuarioLogado')
+
+  const response = await fetch(`${urlUsuarios}`)
+  let vagasResponse = await response.json()
+  console.log(typeof vagasResponse)
+  let percorrerUsuarios = vagasResponse.filter(
+    usuarios => usuarios.id == usuarioLogado
+  )[0].candidaturas
+
+  const candidaturasUm = {
+    candidaturas: {
+      tituloVaga: vagaAtual[0],
+      descricaoVagas: vagaAtual[2],
+      remuneracao: vagaAtual[1],
+      id: vagaAtual[3]
+    }
+  }
+
+  percorrerUsuarios.push(candidaturasUm)
+
+  await fetch(`${urlUsuarios}/${usuarioLogado}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      candidaturas: percorrerUsuarios
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
+    }
+  })
+}
+
+// FIM CANDIDATURAS
 
 let excluirVaga = async vagaAtual => {
   axios
@@ -297,48 +331,48 @@ function getUsuario(event) {
     .then(response => {
       var data = response.data
 
-      validarLogin(data, email, senha);
+      validarLogin(data, email, senha)
     })
     .catch(error => console.log(error))
 }
 
 async function validarLogin(data, email, senha) {
-  var i = 0;
-  let aux = true;
+  var i = 0
+  let aux = true
 
   while (aux) {
     if (data[i].email == email && data[i].senha == senha) {
-      var tipo = data[i].tipo;
-      var emailUsuario = data[i].email;
-      var senhaUsuario = data[i].senha;
-      var dataDeNascimento = data[i].dataNascimento;
-      var nomeUsuario = data[i].nome;
+      var tipo = data[i].tipo
+      var emailUsuario = data[i].email
+      var senhaUsuario = data[i].senha
+      var dataDeNascimento = data[i].dataNascimento
+      var nomeUsuario = data[i].nome
+      var idUsuario = data[i].id
 
-
-      localStorage.setItem('tipoUsuarioLogado', tipo);
-      localStorage.setItem('emailUsuarioLogado', emailUsuario);
-      localStorage.setItem('senhaUsuarioLogado', senhaUsuario);
-      localStorage.setItem('dataNascUsuarioLogado', dataDeNascimento);
-      localStorage.setItem('nomeUsuarioLogado', nomeUsuario);
-
+      localStorage.setItem('idUsuarioLogado', idUsuario)
+      localStorage.setItem('tipoUsuarioLogado', tipo)
+      localStorage.setItem('emailUsuarioLogado', emailUsuario)
+      localStorage.setItem('senhaUsuarioLogado', senhaUsuario)
+      localStorage.setItem('dataNascUsuarioLogado', dataDeNascimento)
+      localStorage.setItem('nomeUsuarioLogado', nomeUsuario)
 
       if (tipo == 'Candidato') {
-        window.location.href = './tela-inicial-recrutador.html';
+        window.location.href = './tela-inicial-recrutador.html'
       }
       if (tipo == 'Recrutador') {
-        window.location.href = './tela-inicial-recrutador.html';
+        window.location.href = './tela-inicial-recrutador.html'
       }
 
-      aux = false;
+      aux = false
     } else if (i == data.length - 1) {
-      aux = false;
+      aux = false
       alert(
         'Usuário não encontrado. Por favor, verifique os dados informados ou cadastre-se.'
-      );
+      )
     } else {
-      console.log('nao encontrou');
+      console.log('nao encontrou')
     }
-    i++;
+    i++
   }
 }
 
@@ -360,9 +394,9 @@ const enviarVaga = event => {
 }
 
 const cadastrarVaga = async () => {
-  const tituloVaga = document.getElementById('titulo-vaga');
-  const descricaoVagas = document.getElementById('descricao-vaga');
-  const remuneracao = document.getElementById('remuneracao');
+  const tituloVaga = document.getElementById('titulo-vaga')
+  const descricaoVagas = document.getElementById('descricao-vaga')
+  const remuneracao = document.getElementById('remuneracao')
 
   const novaVaga = new Vaga(
     tituloVaga.value,
@@ -370,20 +404,23 @@ const cadastrarVaga = async () => {
     remuneracao.value
   )
 
-
-    try {  
-      if(tituloVaga.value != "" && descricaoVagas.value != "" && remuneracao.value != ""){
-        await axios.post('http://localhost:3000/vagas', novaVaga)
-        alert('Vaga cadastrada com sucesso!');
-    } else{
-        alert("Todos os campos devem ser preenchidos!");
+  try {
+    if (
+      tituloVaga.value != '' &&
+      descricaoVagas.value != '' &&
+      remuneracao.value != ''
+    ) {
+      await axios.post('http://localhost:3000/vagas', novaVaga)
+      alert('Vaga cadastrada com sucesso!')
+    } else {
+      alert('Todos os campos devem ser preenchidos!')
     }
-  }catch (error) {
-    alert('Erro ao cadastrar sua vaga');
-    alert(error);
+  } catch (error) {
+    alert('Erro ao cadastrar sua vaga')
+    alert(error)
   }
 
-  limparInputVagas();
+  limparInputVagas()
 }
 
 let limparInputVagas = () => {
@@ -392,16 +429,12 @@ let limparInputVagas = () => {
   document.getElementById('remuneracao').value = ''
 }
 
+async function logout() {
+  localStorage.removeItem('tipoUsuarioLogado')
+  localStorage.removeItem('emailUsuarioLogado')
+  localStorage.removeItem('senhaUsuarioLogado')
+  localStorage.removeItem('dataNascUsuarioLogado')
+  localStorage.removeItem('nomeUsuarioLogado')
 
-async function logout(){
-
-
-      localStorage.removeItem('tipoUsuarioLogado');
-      localStorage.removeItem('emailUsuarioLogado');
-      localStorage.removeItem('senhaUsuarioLogado');
-      localStorage.removeItem('dataNascUsuarioLogado');
-      localStorage.removeItem('nomeUsuarioLogado');
-    
-      window.location.href = './tela-inicial-geral.html'
-  
+  window.location.href = './tela-inicial-geral.html'
 }
