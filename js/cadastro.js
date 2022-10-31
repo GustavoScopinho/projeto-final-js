@@ -108,7 +108,8 @@ let mostrarRecrutador = async vagas => {
         vagas[i].tituloVaga,
         vagas[i].remuneracao,
         vagas[i].descricaoVagas,
-        vagas[i].id
+        vagas[i].id,
+        vagas[i].candidatos
       ]
       
       descricaoVagas.className = 'descricao-vaga'
@@ -176,7 +177,7 @@ let mostraInforVagas = vagaAtual => {
   let btnExcluir = document.getElementById('excluir-vaga')
   btnExcluir.addEventListener('click', () => excluirVaga(vagaAtual))
 
-  mostarCandidatosDaVaga(candidaturas)
+  mostarCandidatosDaVaga(vagaAtual)
 }
 
 let mostraInforVagasUsuarios = vagaAtual => {
@@ -196,74 +197,22 @@ let mostraInforVagasUsuarios = vagaAtual => {
   letBtnCandidatarVaga.addEventListener('click', () =>
     candidatarVaga(vagaAtual)
   )
-  mostarCandidatosDaVaga2(candidaturas)
+  mostarCandidatosDaVaga2(vagaAtual)
+} 
 
-  pegarCandidaturas(vagaAtual)
-}
-
-
-let pegarCandidaturas = async (vagaAtual) => {
-  axios
-    .get(urlUsuarios)
-    .then(response => {
-      let usuarios = response.data
-      filtrarCandidaturas(usuarios, vagaAtual);
-    })
-    .catch(erro => console.log(erro))
-}
-
-
-let filtrarCandidaturas = (usuarios, vagaAtual)=>{
-
-  console.log(vagaAtual);
-
-  let arrFiltrado = usuarios.filter((el, i)=>{
-
-    
-     
-
-
-
-
-    // let dataNascimento = el.dataNascimento;
-    // let dataReduzida = dataNascimento.substring(10, 0);
-    // const dataFormatada = dataReduzida.split('-').reverse();
-    // let dataFinal = `${dataFormatada[0]}/${dataFormatada[1]}/${dataFormatada[2]}`;
-    // console.log(dataFinal);
-
-
-  })
-
-}
-
-
-
-
-//----------------------------------Mostrar candidaturas----------------------------
-let candidaturas = [
-  {
-    nome: 'joão',
-    dataDeNascimento: '15/02/1970'
-  },
-  {
-    nome: 'Fernanda',
-    dataDeNascimento: '05/10/1999'
-  },
-  {
-    nome: 'Alan',
-    dataDeNascimento: '15/02/1970'
-  },
-  {
-    nome: 'Joaquina',
-    dataDeNascimento: '05/10/1999'
-  }
-]
-
-let mostarCandidatosDaVaga = candidaturas => {
+let mostarCandidatosDaVaga = vagaAtual => {
   let vagasGeral = document.getElementById('vagas-geral')
-
+  let candidaturas = vagaAtual[4];
   if (candidaturas.length > 0) {
     candidaturas.map(candidatura => {
+
+    let dataNascimentoX = candidatura.dataNiver;
+  
+    let dataReduzida = dataNascimentoX.substring(10, 0);
+    const dataFormatada = dataReduzida.split('-').reverse();
+    let dataFinal = `${dataFormatada[0]}/${dataFormatada[1]}/${dataFormatada[2]}`;
+
+
       let candidato = document.createElement('div')
       let nome = document.createElement('p')
       let dataNascimento = document.createElement('p')
@@ -271,7 +220,7 @@ let mostarCandidatosDaVaga = candidaturas => {
 
       vagasGeral.className = 'vagas-geral'
       nome.innerText = candidatura.nome
-      dataNascimento.innerHTML = candidatura.dataDeNascimento
+      dataNascimento.innerHTML = dataFinal
       candidato.className = 'vaga'
       button.innerText = 'Reprovar'
       button.className = 'btn-normal'
@@ -288,11 +237,20 @@ let mostarCandidatosDaVaga = candidaturas => {
   }
 }
 
-let mostarCandidatosDaVaga2 = candidaturas => {
-  let vagasGeral2 = document.getElementById('vagas-geral2')
+let mostarCandidatosDaVaga2 = vagaAtual => {
+  let vagasGeral2 = document.getElementById('vagas-geral2');
+  let candidaturas = vagaAtual[4]; 
 
   if (candidaturas.length > 0) {
     candidaturas.map(candidatura => {
+
+      let dataNascimentoX = candidatura.dataNiver;
+  
+      let dataReduzida = dataNascimentoX.substring(10, 0);
+      const dataFormatada = dataReduzida.split('-').reverse();
+      let dataFinal = `${dataFormatada[0]}/${dataFormatada[1]}/${dataFormatada[2]}`;
+
+
       let candidato = document.createElement('div')
       let nome = document.createElement('p')
       let dataNascimento = document.createElement('p')
@@ -300,7 +258,7 @@ let mostarCandidatosDaVaga2 = candidaturas => {
       vagasGeral2.className = 'vagas-geral'
       nome.innerText = candidatura.nome
       nome.className = 'p2'
-      dataNascimento.innerHTML = candidatura.dataDeNascimento
+      dataNascimento.innerHTML = dataFinal
       dataNascimento.className = 'p2'
       candidato.className = 'vaga'
 
@@ -355,10 +313,6 @@ let vagasResponse2 = await responseVagas.json()
 let percorrerVagas2 = vagasResponse2.filter(
   vagas => vagas.id == vagaAtual[3]
 )
-
-
-console.log(percorrerVagas2)
-
 
 const candidatos = {
   candidato: {

@@ -15,8 +15,43 @@
       "dataNascimento": "2022-11-04T03:00:00.000Z",
       "email": "gicelly.oliveira@dbccompany.com.br",
       "senha": "123",
-      "candidaturas": [],
+      "candidaturas": [
+        {
+          "candidaturas": {
+            "tituloVaga": "Vaga Com usuarios",
+            "descricaoVagas": "vagas ",
+            "remuneracao": "0000000000000",
+            "id": 6
+          }
+        },
+        {
+          "candidaturas": {
+            "tituloVaga": "alguma",
+            "descricaoVagas": "coisa",
+            "remuneracao": "15000",
+            "id": 5
+          }
+        }
+      ],
       "id": 2
+    },
+    {
+      "tipo": "Candidato",
+      "nome": "João",
+      "dataNascimento": "2022-12-01T03:00:00.000Z",
+      "email": "f@r.com.br",
+      "senha": "123",
+      "candidaturas": [
+        {
+          "candidaturas": {
+            "tituloVaga": "Vaga Com usuarios",
+            "descricaoVagas": "vagas ",
+            "remuneracao": "0000000000000",
+            "id": 6
+          }
+        }
+      ],
+      "id": 3
     }
   ],
   "vagas": [
@@ -38,14 +73,31 @@
       "tituloVaga": "alguma",
       "descricaoVagas": "coisa",
       "remuneracao": "15000",
-      "candidatos": [],
+      "candidatos": [
+        {
+          "nome": "Gicelly",
+          "dataNiver": "2022-11-04T03:00:00.000Z",
+          "id": "2"
+        }
+      ],
       "id": 5
     },
     {
       "tituloVaga": "Vaga Com usuarios",
       "descricaoVagas": "vagas ",
       "remuneracao": "0000000000000",
-      "candidatos": [],
+      "candidatos": [
+        {
+          "nome": "Gicelly",
+          "dataNiver": "2022-11-04T03:00:00.000Z",
+          "id": "2"
+        },
+        {
+          "nome": "João",
+          "dataNiver": "2022-12-01T03:00:00.000Z",
+          "id": "3"
+        }
+      ],
       "id": 6
     }
   ]
