@@ -13,7 +13,7 @@
 }
 
 body {
-  background-color: #ccc;
+  background: radial-gradient(circle at 50% 20.93%, #fdfdfd 0, #cedce4 25%, #9ab7c8 50%, #6693ad 75%, #337497 100%);
   
 }
 

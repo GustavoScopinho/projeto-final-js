@@ -20,6 +20,10 @@ a {
     color: var(--texto-padrao);
 }
 
+body{
+    background-image: linear-gradient(270deg, #ffffff 0, #ffffff 25%, #fafdff 50%, #c6d7e3 75%, #99b5cb 100%);
+}
+
 
 .body-login {
     display: flex;
@@ -57,7 +61,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 50% ;
-    background-color: var(--bg-branco-50); 
+    
 }
 
 .div-login {
@@ -65,7 +69,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 50%;
-    background-color: var(--bg-branco-100);
+    
 }
 
 .container-loguin {

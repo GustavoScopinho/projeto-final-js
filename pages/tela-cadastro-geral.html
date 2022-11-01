@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/tela-cadastro-geral.css" />
-    <title>Tela Cadastro geral</title>
+    <link
+      rel="shortcut icon"
+      href="../img/icon-nuvem.png"
+      type="image/x-icon"
+    />
+    <title>Tela de Cadastro</title>
   </head>
   <body class="body-cadastro">
     <section class="container-cadastro">
@@ -19,12 +24,12 @@
             <option value="Recrutador">Recrutador</option>
           </select>
         </div>
-        <label for="">Nome completo*</label>
+        <label for="nome">Nome completo*</label>
         <div class="div-input-cad">
           <input
             type="text"
             placeholder="Exemplo: João da Silva"
-            pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
+            pattern="/\b[A-Za-zÀ-ú][A-Za-zÀ-ú]+,?\s[A-Za-zÀ-ú][A-Za-zÀ-ú]{2,19}\b/gi"
             required
             id="nome-usuario"
           />
@@ -34,7 +39,7 @@
           <input
             type="date"
             placeholder="Digite sua data de nascimento"
-            pattern=""
+            pattern="[0-9/]+$"
             required
             id="nascimento"
           />

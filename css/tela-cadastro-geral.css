@@ -1,7 +1,7 @@
 @import url(./tela-inicial-geral.css);
 
 .body-cadastro {
-    background-color: var(--bg-branco-50);
+    background-image: radial-gradient(circle at 50% 50%, #fff3e9 0, #eae1dd 16.67%, #c3cdd2 33.33%, #9ab7c8 50%, #71a1bf 66.67%, #498cb8 83.33%, #1478b1 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,6 +33,7 @@ a {
     height: 600px;
     background-color: var(--bg-branco-100);
     border-radius: 30px;
+    box-shadow: 1px 1px 2px 1px #fff;
 }
 
 .container-dados {
