@@ -192,11 +192,47 @@ let mostraInforVagasUsuarios = vagaAtual => {
   })
 
   let letBtnCandidatarVaga = document.getElementById('btnCandidatarVaga')
-  letBtnCandidatarVaga.addEventListener('click', () =>
-    candidatarVaga(vagaAtual)
-  )
+  letBtnCandidatarVaga.addEventListener('click', () => mudarBotao(vagaAtual))
+
   mostarCandidatosDaVaga2(vagaAtual)
 } 
+
+let mudarBotao = vagaAtual =>{
+  let candidatoAtual = localStorage.getItem('idUsuarioLogado');
+  // console.log(vagaAtual[4])  
+
+  let algumaCoisa = vagaAtual[4].filter(el => el.id == candidatoAtual)
+
+  // console.log(algumaCoisa[0])
+
+  
+
+  for(let i = 0; i < algumaCoisa.length; i++){
+    var a = false;
+    if(algumaCoisa[i].id == candidatoAtual){
+      a = true;
+    }  
+  }
+
+  console.log(a)
+  
+  // if(algumaCoisa[i].id == candidatoAtual) {
+  //   cancelarCandidatura(vagaAtual)
+
+  // } else { 
+  //   candidatarVaga(vagaAtual) 
+  // }
+
+
+
+
+}
+
+
+
+
+
+
 
 let mostarCandidatosDaVaga = vagaAtual => {
   let vagasGeral = document.getElementById('vagas-geral')

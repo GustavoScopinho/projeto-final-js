@@ -63,7 +63,20 @@
       "tituloVaga": "QA",
       "descricaoVagas": "Importunar os outros desenvolvedores",
       "remuneracao": "4500",
-      "candidatos": [],
+      "candidatos": [
+        {
+          "nome": "felipe",
+          "dataNiver": "2022-12-17T03:00:00.000Z",
+          "id": "5",
+          "reprovado": false
+        },
+        {
+          "nome": "hugo",
+          "dataNiver": "2022-12-17T03:00:00.000Z",
+          "id": "6",
+          "reprovado": false
+        }
+      ],
       "id": 6
     }
   ]
