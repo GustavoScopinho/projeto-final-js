@@ -23,6 +23,14 @@
             "remuneracao": "4500",
             "id": 6
           }
+        },
+        {
+          "candidaturas": {
+            "tituloVaga": "Desenvolvedor Senior",
+            "descricaoVagas": "Babá de júnior",
+            "remuneracao": "15000",
+            "id": 5
+          }
         }
       ],
       "id": 2
@@ -44,16 +52,54 @@
         }
       ],
       "id": 3
+    },
+    {
+      "tipo": "Candidato",
+      "nome": "Amigo ",
+      "dataNascimento": null,
+      "email": "amigo@hotmail.com",
+      "senha": "123",
+      "candidaturas": [
+        {
+          "candidaturas": {
+            "tituloVaga": "QA",
+            "descricaoVagas": "Importunar os outros desenvolvedores",
+            "remuneracao": "4500",
+            "id": 6
+          }
+        }
+      ],
+      "id": 4
+    },
+    {
+      "tipo": "Candidato",
+      "nome": "Amigo Candidato",
+      "dataNascimento": "1980-11-10T03:00:00.000Z",
+      "email": "amigocandidato@hotmail.com",
+      "senha": "123",
+      "candidaturas": [
+        {
+          "candidaturas": {
+            "tituloVaga": "Vaga Backend",
+            "descricaoVagas": "Sofrer com Java",
+            "remuneracao": "5000",
+            "id": 1
+          }
+        }
+      ],
+      "id": 5
+    },
+    {
+      "tipo": "Recrutador",
+      "nome": "Amigo Recrutador",
+      "dataNascimento": "1990-11-10T02:00:00.000Z",
+      "email": "amigorecrutador@hotmail.com",
+      "senha": "123",
+      "candidaturas": [],
+      "id": 6
     }
   ],
   "vagas": [
-    {
-      "tituloVaga": "Vaga Backend",
-      "descricaoVagas": "Sofrer com Java",
-      "remuneracao": "5000",
-      "candidatos": [],
-      "id": 1
-    },
     {
       "tituloVaga": "Front end React",
       "descricaoVagas": "Colorir a tela",
@@ -65,7 +111,14 @@
       "tituloVaga": "Desenvolvedor Senior",
       "descricaoVagas": "Babá de júnior",
       "remuneracao": "15000",
-      "candidatos": [],
+      "candidatos": [
+        {
+          "nome": "Gicelly",
+          "dataNiver": "2022-11-04T03:00:00.000Z",
+          "id": "2",
+          "reprovado": false
+        }
+      ],
       "id": 5
     },
     {
@@ -83,6 +136,12 @@
           "nome": "João",
           "dataNiver": "2022-12-01T03:00:00.000Z",
           "id": "3",
+          "reprovado": true
+        },
+        {
+          "nome": "Amigo ",
+          "dataNiver": "null",
+          "id": "4",
           "reprovado": true
         }
       ],
