@@ -1,9 +1,6 @@
-
-
 const url = 'http://localhost:3000'
 const urlUsuarios = `${url}/usuarios`
 const urlVagas = `${url}/vagas`
-
 
 class Usuario {
   constructor(tipo, nome, dataNascimento, email, senha) {
@@ -77,19 +74,12 @@ window.addEventListener('load', () => {
   let tipoUsuarioLogado = localStorage.getItem('tipoUsuarioLogado')
   if (tipoUsuarioLogado === 'Candidato' && 'emailUsuarioLogado' != null) {
     mostrarCandidato()
-    alterarCorTexto()
   }
 
   getVagas()
 })
 
 //------------------------------------------------
-
-let alterarCorTexto = ()=>{
-
-}
-
-
 
 
 let getVagas = async () => {
@@ -314,9 +304,55 @@ let mostarCandidatosDaVaga2 = vagaAtual => {
     <div class="sem-vaga">Nenhum candidato cadastrado</div>
   </div>`
   }
+
+  let cancelarCandidaturaBtn = document.getElementById('cancelarCandidatura');
+  cancelarCandidaturaBtn.addEventListener('click', ()=> cancelarCandidatura(vagaAtual));
 }
 
 //----------------------------------------------------------------------------------------------
+
+let cancelarCandidatura = async (vagaAtual)=> {
+  let usuarioLogadoId = localStorage.getItem('idUsuarioLogado')
+
+  let candidaturaFiltrada = vagaAtual[4].filter((el)=> el.id != usuarioLogadoId);
+
+  await fetch(`${urlVagas}/${vagaAtual[3]}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      candidatos: candidaturaFiltrada
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
+    }
+  })
+
+  axios
+  .get(urlUsuarios)
+  .then(response => {
+    var data = response.data
+
+    atualizarCandidato(data, vagaAtual)
+  })
+  .catch(error => console.log(error))
+
+  let atualizarCandidato = async (data, vagaAtual)=> {
+    let usuarioLogadoId = localStorage.getItem('idUsuarioLogado')
+    
+    let candidatoCandidaturas = data.filter(el => el.id == usuarioLogadoId)[0].candidaturas;  
+
+    let candidaturaAtualizada = candidatoCandidaturas.filter(element => element.id != vagaAtual[3])    
+    
+    await fetch(`${urlUsuarios}/${usuarioLogadoId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        candidaturas: candidaturaAtualizada
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      }
+    })
+  }
+}
 
 async function candidatarVaga(vagaAtual) {
   let usuarioLogadoId = localStorage.getItem('idUsuarioLogado')
@@ -331,12 +367,10 @@ async function candidatarVaga(vagaAtual) {
 
 
   const candidaturasUm = {
-    candidaturas: {
       tituloVaga: vagaAtual[0],
       descricaoVagas: vagaAtual[2],
       remuneracao: vagaAtual[1],
-      id: vagaAtual[3]
-    }
+      id: vagaAtual[3]   
   }
 
   percorrerUsuarios.push(candidaturasUm)
@@ -418,6 +452,7 @@ async function validarLogin(data, email, senha) {
       var dataDeNascimento = data[i].dataNascimento
       var nomeUsuario = data[i].nome
       var idUsuario = data[i].id
+      var candidaturasUsuario = data[i].candidaturas
 
       localStorage.setItem('idUsuarioLogado', idUsuario)
       localStorage.setItem('tipoUsuarioLogado', tipo)
@@ -425,6 +460,7 @@ async function validarLogin(data, email, senha) {
       localStorage.setItem('senhaUsuarioLogado', senhaUsuario)
       localStorage.setItem('dataNascUsuarioLogado', dataDeNascimento)
       localStorage.setItem('nomeUsuarioLogado', nomeUsuario)
+      localStorage.setItem('candidaturasLogadoUsuario', candidaturasUsuario)
 
       if (tipo == 'Candidato') {
         window.location.href = './tela-inicial-recrutador.html'
