@@ -14,12 +14,6 @@ class Usuario {
   }
 }
 
-//  ------------------------------
-
-// addCandidaturas()
-
-//  --------------------------
-
 const enviar = event => {
   event.preventDefault()
   cadastrarUsuario()
@@ -49,7 +43,6 @@ const cadastrarUsuario = async () => {
     alert('Algo deu errado')
   }
 
-  //------------------------------------------------------------
   limparInput()
 }
 
@@ -60,15 +53,10 @@ let limparInput = () => {
   document.getElementById('senha').value = ''
 }
 
-//----------------------------------------------------------------
-
 let logar = event => {
   event.preventDefault()
   verificarCategoriaUsuario()
 }
-
-//------------------------------------------------
-//Mostrar vagas ao fazer o Loading da Página
 
 window.addEventListener('load', () => {
   let tipoUsuarioLogado = localStorage.getItem('tipoUsuarioLogado')
@@ -78,9 +66,6 @@ window.addEventListener('load', () => {
 
   getVagas()
 })
-
-//------------------------------------------------
-
 
 let getVagas = async () => {
   axios
@@ -197,42 +182,23 @@ let mostraInforVagasUsuarios = vagaAtual => {
   mostarCandidatosDaVaga2(vagaAtual)
 } 
 
-let mudarBotao = vagaAtual =>{
-  let candidatoAtual = localStorage.getItem('idUsuarioLogado');
-  // console.log(vagaAtual[4])  
-
-  let algumaCoisa = vagaAtual[4].filter(el => el.id == candidatoAtual)
-
-  // console.log(algumaCoisa[0])
-
+let mudarBotao = async vagaAtual =>{
   
+  let candidatosMatriculados = vagaAtual[4];
+  let candidatoAtual = localStorage.getItem('idUsuarioLogado'); 
+  
+  if(!candidatosMatriculados.length){candidatarVaga(vagaAtual)}    
 
-  for(let i = 0; i < algumaCoisa.length; i++){
-    var a = false;
-    if(algumaCoisa[i].id == candidatoAtual){
-      a = true;
+  candidatosMatriculados.map((el)=> {
+    let candidatoAtual = localStorage.getItem('idUsuarioLogado');
+    
+    if(el.id == candidatoAtual){ 
+      cancelarCandidatura(vagaAtual);     
+    } else {
+      candidatarVaga(vagaAtual);
     }  
-  }
-
-  console.log(a)
-  
-  // if(algumaCoisa[i].id == candidatoAtual) {
-  //   cancelarCandidatura(vagaAtual)
-
-  // } else { 
-  //   candidatarVaga(vagaAtual) 
-  // }
-
-
-
-
+  });  
 }
-
-
-
-
-
-
 
 let mostarCandidatosDaVaga = vagaAtual => {
   let vagasGeral = document.getElementById('vagas-geral')
@@ -310,26 +276,19 @@ let mostarCandidatosDaVaga2 = vagaAtual => {
       if(candidatura.reprovado && candidatura.id == usuarioLogado){ 
         nome.classList.add('cor-vermelho');       
         dataNascimento.classList.add('cor-vermelho');
-      }
-//-----------------------------------------------------------------------------------------------------------------------------------------
-      if(candidatura.reprovado){
         btnVaga.innerText = "Cancelar Candidatura";
         btnVaga.classList.add('desabilitado');
-        btnVaga.addEventListener('click',  () => funcaoVazia())//-------------------------------Função preparada para excluir candidatura
       }
-      
+//-----------------------------------------------------------------------------------------------------------------------------------------
+       
       candidaturas.map((el)=> {
         let usuarioLogadoId = localStorage.getItem('idUsuarioLogado')
         if(el.id == usuarioLogadoId){
           btnVaga.innerText = "Cancelar Candidatura";
           btnVaga.classList.add('btn-cancelar-vaga');
-          btnVaga.addEventListener('click', () => funcaoVazia())//-------------------------------Função preparada para excluir candidatura
         }        
       })
 
-      let funcaoVazia = ()=> {
-        // Tem que ser declarada fora desse escopo. Coloquei aqui só para não mostrar que a função não foi definida
-      }
 //---------------------------------------------------------------------------------------------------------------------------------------------
       candidato.appendChild(nome)
       candidato.appendChild(dataNascimento)
@@ -340,9 +299,6 @@ let mostarCandidatosDaVaga2 = vagaAtual => {
     <div class="sem-vaga">Nenhum candidato cadastrado</div>
   </div>`
   }
-
-  let cancelarCandidaturaBtn = document.getElementById('cancelarCandidatura');
-  cancelarCandidaturaBtn.addEventListener('click', ()=> cancelarCandidatura(vagaAtual));
 }
 
 //----------------------------------------------------------------------------------------------
@@ -446,16 +402,12 @@ await fetch(`${urlVagas}/${vagaAtual[3]}`, {
     'Content-type': 'application/json; charset=UTF-8'
   }
 })
-
 }
-
-// FIM CANDIDATURAS
 
 let excluirVaga = async vagaAtual => {
   axios
     .delete(`${urlVagas}/${vagaAtual[3]}`)
     .then(response => {
-      console.log(vagas)
     })
     .catch(erro => console.log(erro))
 }
@@ -511,14 +463,10 @@ async function validarLogin(data, email, senha) {
       alert(
         'Usuário não encontrado. Por favor, verifique os dados informados ou cadastre-se.'
       )
-    } else {
-      console.log('nao encontrou')
     }
     i++
   }
 }
-
-//---------------------------------
 
 const URL_VAGAS = 'http://localhost:3000/vagas'
 
@@ -582,30 +530,21 @@ async function logout() {
   window.location.href = './tela-inicial-geral.html'
 }
 
-
 class Candidatura {
   constructor (idCandidato){
     this.idCandidato = idCandidato;
     this.reprovado = false; // booleano
     }
-  }
- 
-  
+  }  
 
 function reprovarCandidato(vagaAtual, idCandidato){
   
   let candidaturaAtual = vagaAtual[4].findIndex(i => idCandidato == i.id);
-  console.log(candidaturaAtual)
   if(candidaturaAtual != -1){
     vagaAtual[4][candidaturaAtual].reprovado = true;
-    console.log(vagaAtual)
-    console.log(vagaAtual[4][candidaturaAtual])
 
     axios.patch(`${urlVagas}/${vagaAtual[3]}`, {
       candidatos: vagaAtual[4]
   })
   }
-
-  // console.log(vagaAtual[4][1].reprovado);
-
 }
