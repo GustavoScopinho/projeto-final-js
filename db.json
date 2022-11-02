@@ -12,7 +12,7 @@
     {
       "tipo": "Candidato",
       "nome": "Gicelly",
-      "dataNascimento": "2022-11-04T03:00:00.000Z",
+      "dataNascimento": "1994-11-04T03:00:00.000Z",
       "email": "gicelly.oliveira@dbccompany.com.br",
       "senha": "123",
       "candidaturas": [
@@ -34,7 +34,7 @@
     {
       "tipo": "Candidato",
       "nome": "João",
-      "dataNascimento": "2022-12-01T03:00:00.000Z",
+      "dataNascimento": "2002-12-01T03:00:00.000Z",
       "email": "f@r.com.br",
       "senha": "123",
       "candidaturas": [
@@ -68,7 +68,7 @@
     {
       "tipo": "Candidato",
       "nome": "Fernando",
-      "dataNascimento": "2022-12-17T03:00:00.000Z",
+      "dataNascimento": "1999-12-17T03:00:00.000Z",
       "email": "fernando@f.com",
       "senha": "123",
       "candidaturas": [],
@@ -132,7 +132,7 @@
       "candidatos": [
         {
           "nome": "João",
-          "dataNiver": "2022-12-01T03:00:00.000Z",
+          "dataNiver": "2002-12-01T03:00:00.000Z",
           "id": "3",
           "reprovado": true
         },
@@ -152,7 +152,7 @@
       "candidatos": [
         {
           "nome": "João",
-          "dataNiver": "2022-12-01T03:00:00.000Z",
+          "dataNiver": "2002-12-01T03:00:00.000Z",
           "id": "3",
           "reprovado": false
         },
@@ -172,7 +172,7 @@
       "candidatos": [
         {
           "nome": "João",
-          "dataNiver": "2022-12-01T03:00:00.000Z",
+          "dataNiver": "2002-12-01T03:00:00.000Z",
           "id": "3",
           "reprovado": true
         },
@@ -198,7 +198,7 @@
         },
         {
           "nome": "Gicelly",
-          "dataNiver": "2022-11-04T03:00:00.000Z",
+          "dataNiver": "1994-11-04T03:00:00.000Z",
           "id": "2",
           "reprovado": false
         }
