@@ -16,7 +16,20 @@ class Usuario {
 
 const enviar = event => {
   event.preventDefault()
-  cadastrarUsuario()
+  validarForm()
+}
+
+let validarForm = ()=>{
+  const nomeCompleto = document.getElementById('nome-usuario')
+  const dataDeNascimento = document.getElementById('nascimento')
+  const email = document.getElementById('email')
+  const senha = document.getElementById('senha')
+  
+  if(nomeCompleto.value == '' || dataDeNascimento.value == '' || email.value == '' || senha.value == '') {
+    alert(`Preencha todos os campos`)
+  } else {
+    cadastrarUsuario();
+  }
 }
 
 const cadastrarUsuario = async () => {
@@ -39,18 +52,17 @@ const cadastrarUsuario = async () => {
   try {
     await axios.post(urlUsuarios, novoUsuario)
     alert('Parabéns, você foi cadastrado!')
+    limparInput()    
   } catch (error) {
     alert('Algo deu errado')
   }
-
-  limparInput()
 }
 
 let limparInput = () => {
-  document.getElementById('nome-usuario').value = ''
-  document.getElementById('nascimento').value = ''
-  document.getElementById('email').value = ''
-  document.getElementById('senha').value = ''
+  document.getElementById('nome-usuario').value.innerText = ''
+  document.getElementById('nascimento').value.innerText = ''
+  document.getElementById('email').value.innerText = ''
+  document.getElementById('senha').value.innerText= ''  
 }
 
 let logar = event => {
