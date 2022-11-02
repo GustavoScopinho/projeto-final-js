@@ -1,0 +1,100 @@
+body {
+  background: radial-gradient(circle at 50% 20.93%, #fdfdfd 0, #cedce4 25%, #9ab7c8 50%, #6693ad 75%, #337497 100%);
+  height: 100vh;
+  width: 100%;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container-maior {
+  width: 600px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.cadastrar-texto {
+  margin-top: 50px;
+}
+
+h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 34px;
+  color: #170F49;
+
+}
+
+.container-vaga {
+  height:  500px;
+  width: 90%;
+  border-radius: 34px;
+  background-color: #fff;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+}
+
+.container-exemplo {
+  
+  width: 90%;
+  color: #6F6C90;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  margin: 10px 0px;
+  
+}
+
+
+.subtitulo {
+  width: 85%;
+}
+
+.subtitulo p {
+  text-align: left;
+  font-weight: 700;
+  color: #170F49;
+}
+
+.button-maior {
+  margin-top: 25px;
+  width: 444px;
+}
+
+input {
+  font-size: 18px;
+  padding: 15px 5px;
+  width: 100%;
+  border: 2px solid #6f6c9025;
+  border-radius: 46px;
+  
+}
+
+input::placeholder {
+  color: #6F6C90;
+ padding-left: 10px;
+  
+}
+
+form div a img {
+  width: 25px;
+  margin-right: 10px;
+}
+
+.container-x {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
