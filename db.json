@@ -1,0 +1,209 @@
+{
+  "usuarios": [
+    {
+      "tipo": "Recrutador",
+      "nome": "Claudao Adm",
+      "dataNascimento": "1980-11-10T03:00:00.000Z",
+      "email": "adm@adm.com",
+      "senha": "123",
+      "candidaturas": [],
+      "id": 1
+    },
+    {
+      "tipo": "Candidato",
+      "nome": "Gicelly",
+      "dataNascimento": "1994-11-04T03:00:00.000Z",
+      "email": "gicelly.oliveira@dbccompany.com.br",
+      "senha": "123",
+      "candidaturas": [
+        {
+          "tituloVaga": "Vaga Backend",
+          "descricaoVagas": "Sofrer com Java",
+          "remuneracao": "5000",
+          "id": 1
+        },
+        {
+          "tituloVaga": "Front end React",
+          "descricaoVagas": "Colorir a tela",
+          "remuneracao": "4000",
+          "id": 2
+        }
+      ],
+      "id": 2
+    },
+    {
+      "tipo": "Candidato",
+      "nome": "João",
+      "dataNascimento": "2002-12-01T03:00:00.000Z",
+      "email": "f@r.com.br",
+      "senha": "123",
+      "candidaturas": [
+        {
+          "tituloVaga": "Vaga Backend",
+          "descricaoVagas": "Sofrer com Java",
+          "remuneracao": "5000",
+          "id": 1
+        },
+        {
+          "tituloVaga": "Front end React",
+          "descricaoVagas": "Colorir a tela",
+          "remuneracao": "4000",
+          "id": 2
+        },
+        {
+          "tituloVaga": "Desenvolvedor Senior",
+          "descricaoVagas": "Babá de júnior",
+          "remuneracao": "15000",
+          "id": 5
+        },
+        {
+          "tituloVaga": "QA",
+          "descricaoVagas": "Importunar os outros desenvolvedores",
+          "remuneracao": "4500",
+          "id": 6
+        }
+      ],
+      "id": 3
+    },
+    {
+      "tipo": "Candidato",
+      "nome": "Fernando",
+      "dataNascimento": "1999-12-17T03:00:00.000Z",
+      "email": "fernando@f.com",
+      "senha": "123",
+      "candidaturas": [],
+      "id": 4
+    },
+    {
+      "tipo": "Candidato",
+      "nome": "Elaine",
+      "dataNascimento": "1999-04-15T03:00:00.000Z",
+      "email": "elaine@c.com",
+      "senha": "123",
+      "candidaturas": [
+        {
+          "tituloVaga": "QA",
+          "descricaoVagas": "Importunar os outros desenvolvedores",
+          "remuneracao": "4500",
+          "id": 6
+        },
+        {
+          "tituloVaga": "Desenvolvedor Senior",
+          "descricaoVagas": "Babá de júnior",
+          "remuneracao": "15000",
+          "id": 5
+        },
+        {
+          "tituloVaga": "Front end React",
+          "descricaoVagas": "Colorir a tela",
+          "remuneracao": "4000",
+          "id": 2
+        },
+        {
+          "tituloVaga": "Vaga Backend",
+          "descricaoVagas": "Sofrer com Java",
+          "remuneracao": "5000",
+          "id": 1
+        },
+        {
+          "tituloVaga": "Front end Pleno",
+          "descricaoVagas": "Junior que acha que é pleno",
+          "remuneracao": "8000",
+          "id": 7
+        }
+      ],
+      "id": 5
+    },
+    {
+      "tipo": "Recrutador",
+      "nome": "Jonas Recrutador",
+      "dataNascimento": "1990-11-14T02:00:00.000Z",
+      "email": "jonas.recrutador@hotmail.com",
+      "senha": "123",
+      "candidaturas": [],
+      "id": 6
+    }
+  ],
+  "vagas": [
+    {
+      "tituloVaga": "Front end React",
+      "descricaoVagas": "Colorir a tela",
+      "remuneracao": "4000",
+      "candidatos": [
+        {
+          "nome": "João",
+          "dataNiver": "2002-12-01T03:00:00.000Z",
+          "id": "3",
+          "reprovado": true
+        },
+        {
+          "nome": "Elaine",
+          "dataNiver": "1999-04-15T03:00:00.000Z",
+          "id": "5",
+          "reprovado": true
+        }
+      ],
+      "id": 2
+    },
+    {
+      "tituloVaga": "Desenvolvedor Senior",
+      "descricaoVagas": "Babá de júnior",
+      "remuneracao": "15000",
+      "candidatos": [
+        {
+          "nome": "João",
+          "dataNiver": "2002-12-01T03:00:00.000Z",
+          "id": "3",
+          "reprovado": false
+        },
+        {
+          "nome": "Elaine",
+          "dataNiver": "1999-04-15T03:00:00.000Z",
+          "id": "5",
+          "reprovado": true
+        }
+      ],
+      "id": 5
+    },
+    {
+      "tituloVaga": "QA",
+      "descricaoVagas": "Importunar os outros desenvolvedores",
+      "remuneracao": "4500",
+      "candidatos": [
+        {
+          "nome": "João",
+          "dataNiver": "2002-12-01T03:00:00.000Z",
+          "id": "3",
+          "reprovado": true
+        },
+        {
+          "nome": "Elaine",
+          "dataNiver": "1999-04-15T03:00:00.000Z",
+          "id": "5",
+          "reprovado": true
+        }
+      ],
+      "id": 6
+    },
+    {
+      "tituloVaga": "Front end Pleno",
+      "descricaoVagas": "Junior que acha que é pleno",
+      "remuneracao": "8000",
+      "candidatos": [
+        {
+          "nome": "Elaine",
+          "dataNiver": "1999-04-15T03:00:00.000Z",
+          "id": "5",
+          "reprovado": false
+        },
+        {
+          "nome": "Gicelly",
+          "dataNiver": "1994-11-04T03:00:00.000Z",
+          "id": "2",
+          "reprovado": false
+        }
+      ],
+      "id": 7
+    }
+  ]
+}

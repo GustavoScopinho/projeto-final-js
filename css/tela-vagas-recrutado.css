@@ -52,13 +52,18 @@ main{
 
 
 .container-geral {
-    background-color: white;
+    
     height: 550px;
     width: 650px;
     border-radius: 34px;
     padding: 60px 63px;
     display: flex;
+<<<<<<< HEAD
     flex-direction: column;
+=======
+    box-shadow: 1px 1px 2px 1px #fff;
+    
+>>>>>>> development
 }
 
 .header-container {
@@ -128,6 +133,14 @@ main{
     font-size: 14px;
 }
 
+.vagas-container .vaga p{
+    min-width: 180px;
+}
+
+.vagas-container .vaga .p2{
+   min-width: 0px;
+}
+
 .vaga .btn-normal {
     background-color: #FE6663;
     color: #FFFFFF;
@@ -188,4 +201,8 @@ main{
 .btn-excluir-vaga:active{
     opacity: 1;
     transform: scale(.98);
+}
+
+.cor-vermelho {
+    color: red;
 }

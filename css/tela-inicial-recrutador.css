@@ -1,12 +1,16 @@
 body {
- background-color:  #ccc;
+  background-image: linear-gradient(335deg, #fffff7 0, #ffffea 16.67%, #f6e8df 33.33%, #cbd0d4 50%, #a2b7ca 66.67%, #7ca0c1 83.33%, #5889b9 100%);
 
 }
 
 section {
   width: 100%;
+<<<<<<< HEAD
   height: 100vh;
   background-color: #ccc;
+=======
+  
+>>>>>>> development
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +25,21 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+<<<<<<< HEAD
   margin-bottom: 20px;
+=======
+  margin-bottom: 50px;
+  padding: 20px 0px;
+  box-shadow: 1px 1px 3px 1px rgb(235, 233, 233);
+}
+
+.container-vagas-geral {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  gap: 10px;
+>>>>>>> development
 }
 
 article {
@@ -37,7 +55,7 @@ article {
   display: flex;
   align-items: center;
   margin: 10px 20px 0px 0px;
-  
+  cursor: pointer;
 }
 
 .container-article a {
